@@ -85,7 +85,7 @@ const maximize = (board) => {
     }
     board[moves[i]] = null;
   }
-
+  
   return [bestValue, bestMove];
 };
 

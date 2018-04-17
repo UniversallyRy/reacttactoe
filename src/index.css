@@ -39,7 +39,6 @@ ol, ul {
   line-height: 20px;
   float: none;
   height: 20px;
-  margin-left: 210px;
   margin-bottom: 50px;
   text-align: center;
   width: 200px;
@@ -77,7 +76,7 @@ ol, ul {
   background: #ddd;
 }
 
-.game {
+.board {
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -105,7 +104,6 @@ ol, ul {
   line-height: 20px;
   float: none;
   height: 20px;
-  margin-left: 210px;
   margin-top: 10px;
   text-align: center;
   width: 200px;
