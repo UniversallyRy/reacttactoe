@@ -29,26 +29,20 @@ ol, ul {
 }
 
 .status {
-  color:white;
-  background: #000;
+  background: #ff0030;
   padding: 1px;
   border: 1px dashed #fff;
    border-radius: 2px;
-   box-shadow: 0 0 0 2px #000, 2px 1px 2px 3px rgba(10, 10, 0, 0.5);
+   box-shadow: 0 0 0 2px #ff0030, 2px 1px 2px 3px rgba(10, 10, 0, 0.5);
   font-size: 24px;
   font-weight: bold;
   line-height: 20px;
   float: none;
   height: 20px;
-  margin: 4px;
+  margin-left: 210px;
+  margin-bottom: 50px;
   text-align: center;
   width: 200px;
-}
-.status:hover {
-  border: 1px dashed #ff0030;
-   border-radius: 2px;
-   box-shadow: 0 0 0 2px #000, 2px 1px 6px 4px rgba(10, 10, 0, 0.5);
-   float: none;
 }
 
 .square {
@@ -84,15 +78,22 @@ ol, ul {
 }
 
 .game {
+  align-items: center;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  background-color: DimGray;
 }
 
 .game-info {
   margin-left: 20px;
 }
 
-Button {
+.reset {
+  padding: auto;
+  margin-bottom:  20px ;
+
+}
+.resetButton {
   color:white;
   background: #000;
   padding: 1px;
@@ -102,17 +103,18 @@ Button {
   font-size: 24px;
   font-weight: bold;
   line-height: 20px;
-  float: left;
+  float: none;
   height: 20px;
-  margin: 4px;
+  margin-left: 210px;
+  margin-top: 10px;
   text-align: center;
   width: 200px;
 }
-Button:hover {
+.resetButton:hover {
   border: 1px dashed #ff0030;
    border-radius: 2px;
    box-shadow: 0 0 0 2px #000, 2px 1px 6px 4px rgba(10, 10, 0, 0.5);
-   float: left;
+   float: none;
 }
 
 .endgame{
