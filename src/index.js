@@ -23,6 +23,7 @@
         squares: Array(9).fill(null),
         // checks  if the X player is next or is it O's turn
         xIsNext: true,
+        moves: 0
       }
     }
     // function used primarily in the renderSquare function below,
@@ -30,15 +31,17 @@
     handleClick = (i) => {
       // returns a copy of the state.squares and saves to a square variable
       const squares = this.state.squares.slice();
-
+      let moves = this.state.moves;
       if (calculateWinner(squares) || squares[i]) {
         return;
       }
 
       squares[i] = this.state.xIsNext ? "X": "O";
+      moves++;
       this.setState({
         squares: squares,
         xIsNext: !this.state.xIsNext,
+        moves: moves
       });
     }
 
@@ -48,7 +51,8 @@
         console.log("RESET HANDLER");
         this.setState({
             squares: Array(9).fill(null),
-            xIsNext: true
+            xIsNext: true,
+            moves: 0
         })
     };
 
@@ -71,6 +75,8 @@
       if (winner) {
         status = 'Winner! ' + winner;
         //else continue game to next player
+      }else if (this.state.moves === 9){
+        status = 'Ended in a tie';
       }else {
         status = 'Next Player: ' + (this.state.xIsNext ? 'X' : 'O');
       }
@@ -142,6 +148,7 @@
         return squares[a];
       }
     }
+
     return null;
   }
 
