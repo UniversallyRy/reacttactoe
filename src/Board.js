@@ -4,9 +4,16 @@ const {maximize, calculateWinner} = require('./GameAI');
 function Square(props) {
   return (
   // adds props on square component to change value when click the square
-  <button className="square" onClick={props.onClick}>
+  <button style={{ pointerEvents: props.disabled ? 'none' : 'auto' }} className="square" onClick={props.onClick}>
     {props.value}
-  </button>);
+  </button>
+  );
+}
+
+function Overlay(props) {
+  return (
+  <div className={props.value}>GAME WON</div>
+  );
 }
 
 // EVERYTHING THAT APPEARS IN OR AROUND BOARD
@@ -15,41 +22,51 @@ export default class Board extends Component {
     super(props);
     this.state = {
       squares: new Array(9).fill(null),
-      firstMove: false
+      condition: false,
+      myTurn: true
+      // firstMove: false
     };
   }
+
+
 
   handleClick = (i) => {
     let squares = [...this.state.squares];
     if (squares[i]) {
       return alert("Invalid Space");
     }
-    // If game won stop handleClick from working further
+    // If game won stop handleClick from working further or i has a value
     if (calculateWinner(squares) || squares[i]) {
       return;
     }
       // Adds player choice as soon as clicked
-      squares[i] = "O";
-      this.setState( {squares, firstMove: true} , ()=>{
-      });
+    squares[i] = "O";
+    this.setState( {squares, myTurn:false/*, firstMove: true*/} , ()=>{
+    });
       // Calls setTimeout on the AI logic function and set state to add realistic delay
     setTimeout(() => {
       const best = maximize(squares);
       squares[best[1]] = "X";
-      this.setState( {squares, firstMove: true} , ()=>{
+      this.setState( {squares, myTurn:true} , ()=>{
       } );
     }, 1000);
   }
 
+
+
   // Function that resets the board by resetting the state to def vals
-  handleReset = () => {
+  handleReset = (i) => {
     console.log("RESET HANDLER");
-    this.setState({squares: Array(9).fill(null), firstMove: true})
+    this.setState({squares: Array(9).fill(null), condition: false/*, firstMove: true*/})
   };
 
   // Renders the square and inserts the values(o, x's) and adds event listen
   renderSquare = (i) => {
-    return (<Square value={this.state.squares[i]} onClick={() => this.handleClick(i)}/>);
+    return (<Square disabled={!this.state.myTurn} value={this.state.squares[i]} onClick={() => this.handleClick(i)}/>);
+  }
+
+  renderOverlay = () => {
+    return(<Overlay value={this.state.condition ? "on" : "off"}/>);
   }
 
   // render func for rending data to screen
@@ -59,6 +76,7 @@ export default class Board extends Component {
     let status;
     //if winner is true, print string and winner text from square[i]
     if (winner) {
+      this.state.condition = !this.state.condition;
       status = 'Winner is ' + winner;
       // checks for full board and no winner
     } else if (this.state.squares.indexOf(null) === -1) {
@@ -69,10 +87,12 @@ export default class Board extends Component {
     }
 
     // returns the JSX
-    return (<div className="board">
+    return (
+    <div className="board">
       <h1 className="gametitle">React Tac Toe</h1>
       <div className="status">{status}
       </div>
+      {this.renderOverlay()}
       <div className="reset">
         <button onClick={() => this.handleReset()} className="resetButton">RESET</button>
       </div>
