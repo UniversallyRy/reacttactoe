@@ -28,10 +28,17 @@ export default class Board extends Component {
     if (calculateWinner(squares) || squares[i]) {
       return;
     }
-    squares[i] = "O";
-    const best = maximize(squares);
-    squares[best[1]] = "X";
-    this.setState({squares, firstMove: true});
+      // Adds player choice as soon as clicked
+      squares[i] = "O";
+      this.setState( {squares, firstMove: true} , ()=>{
+      });
+      // Calls setTimeout on the AI logic function and set state to add realistic delay
+    setTimeout(() => {
+      const best = maximize(squares);
+      squares[best[1]] = "X";
+      this.setState( {squares, firstMove: true} , ()=>{
+      } );
+    }, 1000);
   }
 
   // Function that resets the board by resetting the state to def vals
