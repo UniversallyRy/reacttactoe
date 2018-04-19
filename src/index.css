@@ -43,6 +43,11 @@ ol, ul {
   padding: 1px;
   text-align: center;
   width: 200px;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: -moz-none;
+  -o-user-select: none;
+  user-select: none;
 }
 
 .square {
@@ -102,12 +107,13 @@ ol, ul {
   float: none;
   font-size: 24px;
   font-weight: bold;
-  height: 20px;
+  height: 40px;
   line-height: 20px;
   margin-top: 10px;
   padding: 1px;
   text-align: center;
   width: 200px;
+
 }
 
 .resetButton:hover {
@@ -135,8 +141,37 @@ ol, ul {
 }
 
 .on {
+  border-radius: 2px;
+  border: 1px dashed #fff;
+  box-shadow: 0 0 0 2px #000, 2px 1px 2px 3px rgba(10, 10, 0, 0.5);
+  float:none;
+  font-size: 50px;
+  font-weight: bold;
   visibility: visible;
+  width: 400px;
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 6px;
+  padding: 1px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 25%;
+  left: 40%;
+  margin-left: -80px;
+  height: 400px;
+  line-height: 400px;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: -moz-none;
+  -o-user-select: none;
+  user-select: none;
 }
+.on:hover {
+    opacity: 0.7;
+}
+
 .off{
   visibility: hidden;
 }
