@@ -113,7 +113,6 @@ ol, ul {
   padding: 1px;
   text-align: center;
   width: 200px;
-
 }
 
 .resetButton:hover {
@@ -144,7 +143,7 @@ ol, ul {
   border-radius: 2px;
   border: 1px dashed #fff;
   box-shadow: 0 0 0 2px #000, 2px 1px 2px 3px rgba(10, 10, 0, 0.5);
-  float:none;
+  float: none;
   font-size: 50px;
   font-weight: bold;
   visibility: visible;
@@ -157,7 +156,7 @@ ol, ul {
   padding: 1px 0;
   position: absolute;
   z-index: 1;
-  bottom: 25%;
+  bottom: 45%;
   left: 40%;
   margin-left: -80px;
   height: 400px;
@@ -168,10 +167,11 @@ ol, ul {
   -o-user-select: none;
   user-select: none;
 }
+
 .on:hover {
-    opacity: 0.7;
+  opacity: 0.7;
 }
 
-.off{
+.off {
   visibility: hidden;
 }

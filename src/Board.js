@@ -60,22 +60,19 @@ export default class Board extends Component {
       this.setState({
         squares,
         myTurn: true,
-      }, () => {});
-    }, 1000);
+      }, () => {});},
+1000);
 
-  }
+}
 
-  // Function that resets the board by resetting the state to def vals
-  handleReset = (i) => {
-    console.log("RESET HANDLER");
-    this.setState({
-      squares: Array(9).fill(null), gameover: false, myTurn:true
-    })
-  };
+// Function that resets the board by resetting the state to def vals
+handleReset = () => {
+console.log("RESET HANDLER");
+this.setState({squares: Array(9).fill(null), gameover: false, myTurn: true})
+};
 
-
-  // render func for rending data to screen
-  render(props) {
+// render func for rending data to screen
+  render() {
     //checks one of the winning combos of moves
     let status = 'You are O';
     // returns the JSX
