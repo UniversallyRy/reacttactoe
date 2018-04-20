@@ -21,6 +21,11 @@ ol, ul {
   padding: auto;
   text-align: center;
   width: 600px;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: -moz-none;
+  -o-user-select: none;
+  user-select: none;
 }
 
 .board-row:after {
@@ -78,15 +83,13 @@ ol, ul {
   outline: none;
 }
 
-.kbd-navigation .square:focus {
-  background: #ddd;
-}
 
 .board {
   align-items: center;
   background-color: DimGray;
   display: flex;
   flex-direction: column;
+  word-wrap: break-word;
 }
 
 .game-info {
@@ -122,23 +125,6 @@ ol, ul {
   float: none;
 }
 
-.endgame {
-  background-color: rgba(205, 133, 63, 0.8);
-  border-radius: 5px;
-  color: white;
-  display: none;
-  font-size: 2em;
-  height: 400px;
-  left: 17%;
-  margin-left: -100px;
-  padding-top: 50px;
-  padding-bottom: 50px;
-  position: absolute;
-  text-align: center;
-  top: 150px;
-  width: 400px;
-}
-
 .on {
   border-radius: 2px;
   border: 1px dashed #fff;
@@ -153,14 +139,13 @@ ol, ul {
   text-align: center;
   vertical-align: middle;
   border-radius: 6px;
-  padding: 1px 0;
+  word-wrap: break-word;
+  padding: 1px;
   position: absolute;
-  z-index: 1;
-  bottom: 45%;
-  left: 40%;
-  margin-left: -80px;
+  margin-top: 10px;
+    margin-top: 320px;
   height: 400px;
-  line-height: 400px;
+  line-height: 200px;
   -webkit-user-select: none;
   -khtml-user-select: none;
   -moz-user-select: -moz-none;

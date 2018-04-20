@@ -13,6 +13,12 @@ function Square(props) {
   </button>);
 }
 
+function Overlay(props) {
+  return (
+    <div onClick={props.onClick} className={props.name}>{props.winner}</div>
+  );
+}
+
 
 // EVERYTHING THAT APPEARS IN OR AROUND BOARD
 export default class Board extends Component {
@@ -39,9 +45,10 @@ export default class Board extends Component {
     const winner = calculateWinner(this.state.squares);
 
     if(winner) {
-      return (<div className={!this.state.gameover ? "on" : "off"}>Player {winner} won!</div>);
+      return (<Overlay onClick={this.handleReset} name={!this.state.gameover ? "on" : "off"} winner={`Player ${winner} won! Click For Replay`}/>)
     }else if (this.state.squares.indexOf(null) === -1) {
-      return (<div className={!this.state.gameover ? "on" : "off"}>Draw!</div>)
+      return (<Overlay onClick={this.handleReset} name={!this.state.gameover ? "on" : "off"} winner={"Draw!  Click For Replay"}/>)
+      // return (<div onClick={() => this.handleReset()} name={!this.state.gameover ? "on" : "off"}>Draw!  Click for replay</div>)
     }
   }
 
@@ -67,8 +74,19 @@ export default class Board extends Component {
 
 // Function that resets the board by resetting the state to def vals
 handleReset = () => {
+
 console.log("RESET HANDLER");
-this.setState({squares: Array(9).fill(null), gameover: false, myTurn: true})
+this.setState({squares: Array(9).fill(null), gameover: false, myTurn: true});
+};
+
+resetButton = () => {
+  const winner = calculateWinner(this.state.squares);
+
+  if (winner || this.state.squares.indexOf(null) === -1) {
+  return <button className="off">RESET</button>;
+  }else{
+    return <button onClick={() => this.handleReset()} className="resetButton">RESET</button>;
+  }
 };
 
 // render func for rending data to screen
@@ -84,7 +102,7 @@ this.setState({squares: Array(9).fill(null), gameover: false, myTurn: true})
       {/* <div className={this.state.gameover ? "on" : "off"}>{this.state.notification}</div> */}
       {this.renderOverlay()}
       <div className="reset">
-        <button onClick={() => this.handleReset()} className="resetButton">RESET</button>
+        {this.resetButton()}
       </div>
       <div className="board-row">
         {this.renderSquare(0)}
