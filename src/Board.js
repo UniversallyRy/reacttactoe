@@ -29,8 +29,7 @@ export default class Board extends Component {
       squares: new Array(9).fill(null),
       gameover: false,
       myTurn: false,
-      playersquare:'',
-      class: 'square',
+      activeIndex: 0,
     }
   }
 
@@ -39,9 +38,9 @@ export default class Board extends Component {
     let squares = [...this.state.squares];
 
     if (calculateWinner(squares) || squares[i]) {
-      return (<Square disabled={!this.state.myTurn} value={this.state.squares[i]} class={this.state.class} />);
+      return (<Square disabled={!this.state.myTurn} value={this.state.squares[i]} class={this.state.activeIndex  !== 0 ? 'psquare' : 'aisquare'}/>);
     }else{
-    return (<Square disabled={this.state.myTurn} value={this.state.squares[i]} class={this.state.class} onClick={() => this.handleClick(i)}/>);
+    return (<Square disabled={this.state.myTurn} value={this.state.squares[i]} class={this.state.activeIndex == 0 ?  'square' : 'square'} onClick={() => this.handleClick(i)}/>);
   }
 }
 
@@ -64,7 +63,12 @@ export default class Board extends Component {
     }
     // Adds player choice as soon as clicked
     squares[i] = "O";
-    this.setState({squares})
+    // squares[i].currentTarget = this.state.activeIndex;
+    this.setState({
+      squares,
+      myTurn : true,
+      activeIndex: +this.state.activeIndex + 1 ,
+    });
 
     // Calls setTimeout on the AI logic function and set state to add realistic delay
     setTimeout(() => {
@@ -73,7 +77,7 @@ export default class Board extends Component {
       this.setState({
         squares,
         myTurn: false,
-
+        activeIndex: +this.state.activeIndex + 1,
       }, () => {});},
 1000);
 
