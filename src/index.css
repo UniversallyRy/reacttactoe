@@ -1,5 +1,6 @@
 body {
-  font: 14px "Century Gothic", Futura, sans-serif;
+  font-size: 50px;
+  font-family: Fascinate, Futura, sans-serif;
   margin: 20px;
 }
 
@@ -8,11 +9,11 @@ ol, ul {
 }
 
 .gametitle {
-  background: #000;
-  border: 1px dashed #fff;
+  background: #4169E1;
+  border: 1px dashed #00008B;
   border-radius: 50px;
-  box-shadow: 0 0 0 2px #000, 1px 3px 5px 2px rgba(10, 10, 0, 0.5);
-  color: white;
+  box-shadow: 0 0 0 2px #4169E1, 1px 3px 5px 2px rgba(10, 10, 0, 0.5);
+  color: #00008B;
   float: none;
   font-size: 50px;
   font-weight: bold;
@@ -35,10 +36,11 @@ ol, ul {
 }
 
 .status {
-  background: #4C0001;
-  border: 1px dashed #fff;
+  color:#00008B;
+  background: #4169E1;
+  border: .5px dashed #00008B;
   border-radius: 2px;
-  box-shadow: 0 0 0 2px black, 2px 1px 2px 3px rgba(10, 10, 0, 0.5);
+  box-shadow: 0 0 0 2px #4169E1, 2px 1px 2px 3px rgba(10, 10, 0, 0.5);
   font-size: 24px;
   font-weight: bold;
   line-height: 20px;
@@ -53,46 +55,46 @@ ol, ul {
   -moz-user-select: -moz-none;
   -o-user-select: none;
   user-select: none;
+  opacity: .5;
 }
 
+
 .square {
-  background: black;
-  color: #4C0001;
-  border: .5px dashed #4C0001;
+  background: #4169E1;
+  border: .5px dashed #00008B;
   border-radius: 50px;
-  box-shadow: 0 0 0 4px black, 2px 1px 6px 4px rgba(10, 10, 0, 0.5);
+  box-shadow: 0 0 0 4px #4169E1, 2px 1px 6px 4px rgba(10, 10, 0, 0.5);
   float: left;
-  font-size: 24px;
-  font-weight: bold;
   /*line-height: 200px;   makes text move slightly*/
   height: 200px;
   margin: 4.5px;
   padding: 1px;
   text-align: center;
-  text-shadow: -1px -1px gray;
+  /* text-shadow: -1px -1px gray; */
   width: 200px;
   -webkit-user-select: none;
   -khtml-user-select: none;
   -moz-user-select: -moz-none;
   -o-user-select: none;
   user-select: none;
+  opacity: .3;
 }
 
 .square:hover {
-  background: #4C0001;
-  border: .5px dashed black;
+  background: #00008B;
   border-radius: 10px;
-  box-shadow: 0 0 0 4px #4C0001, 2px 1px 6px 4px rgba(10, 10, 0, 0.5);
+  box-shadow: 0 0 0 4px #00008B, 2px 1px 6px 4px rgba(10, 10, 0, 0.5);
 }
 
 .psquare {
-  background: #4C0001;
-  color: black;
-  border: 1px dashed black;
+  font-family: Fascinate, sans-serif;
+  background: #584ef5;
+  color: #00008B;
+  border: 1px dashed #00008B;
   border-radius: 50px;
-  box-shadow: 0 0 0 4px black, 2px 1px 6px 4px rgba(10, 10, 0, 0.5);
+  box-shadow: 0 0 0 4px #584ef5, 2px 1px 6px 4px rgba(10, 10, 0, 0.5);
   float: left;
-  font-size: 24px;
+  font-size: 150px;
   font-weight: bold;
   /*line-height: 200px;   makes text move slightly*/
   height: 200px;
@@ -106,6 +108,7 @@ ol, ul {
   -moz-user-select: -moz-none;
   -o-user-select: none;
   user-select: none;
+  opacity: .6;
 }
 
 .aisquare {
@@ -126,37 +129,49 @@ ol, ul {
   width: 200px;
 }
 
+
+/*  removes outline around recently focused items */
 .psquare:focus {
   outline: none;
 }
 .square:focus {
-  outline: 0;
+  outline: none;
 }
 .aisquare:focus {
+  outline: none;
+}
+.resetButton:focus {
   outline: none;
 }
 
 
 .board {
   align-items: center;
-  background-color: black;
+
   display: flex;
   flex-direction: column;
   word-wrap: break-word;
+	background:
+		-webkit-linear-gradient(45deg, hsla(243, 100%, 49%, 1) 0%, hsla(243, 100%, 49%, 0) 70%),
+		-webkit-linear-gradient(315deg, hsla(244, 91%, 44%, 1) 10%, hsla(244, 91%, 44%, 0) 80%),
+		-webkit-linear-gradient(225deg, hsla(211, 99%, 50%, 1) 10%, hsla(211, 99%, 50%, 0) 80%),
+		-webkit-linear-gradient(135deg, hsla(10, 97%, 49%, 1) 100%, hsla(10, 97%, 49%, 0) 70%);
+	background:
+		linear-gradient(45deg, hsla(243, 100%, 49%, 1) 0%, hsla(243, 100%, 49%, 0) 70%),
+		linear-gradient(135deg, hsla(244, 91%, 44%, 1) 10%, hsla(244, 91%, 44%, 0) 80%),
+		linear-gradient(225deg, hsla(211, 99%, 50%, 1) 10%, hsla(211, 99%, 50%, 0) 80%),
+		linear-gradient(315deg, hsla(10, 97%, 49%, 1) 100%, hsla(10, 97%, 49%, 0) 70%);
+  opacity: 0.7;
 }
 
 .border {
   align-items: center;
-  background-color: #4C0001;
   display: flex;
   flex-direction: column;
   word-wrap: break-word;
-  border: 1px dashed #000;
-  border-radius: - 22px;
-  background: #4C0001;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to top, #070000, #4C0001, #070000);
-  background: linear-gradient(to top, #070000, #4C0001, #070000);
+  border: 3px solid #00008B;
 }
+
 
 .game-info {
   margin-left: 20px;
@@ -168,11 +183,11 @@ ol, ul {
 }
 
 .resetButton {
-  border-radius: 2px;
-  background: #000;
-  border: 1px dashed black;
-  box-shadow: 0 0 0 2px #000, 2px 1px 2px 3px rgba(10, 10, 0, 0.5);
-  color: #4C0001;
+  border-radius: 180px;
+  background: #4169E1;
+  border: 1px dashed #00008B;
+  box-shadow: 0 0 0 2px #4169E1, 2px 1px 2px 3px rgba(10, 10, 0, 0.5);
+  color: #00008B;
   float: none;
   font-size: 24px;
   font-weight: bold;
@@ -182,34 +197,39 @@ ol, ul {
   padding: 1px;
   text-align: center;
   width: 200px;
+  opacity: .5;
+  font-family: Fascinate, sans-serif;
 }
 
 .resetButton:hover {
-  border: .5px dashed #4C0001;
-  border-radius: 2px;
-  box-shadow: 0 0 0 2px #000, 2px 1px 6px 4px rgba(10, 10, 0, 0.5);
+  background: #00008B;
+  border: 1px dashed #00008B;
+  box-shadow: 0 0 0 2px #00008B, 2px 1px 2px 3px rgba(10, 10, 0, 0.5);
+  color: #4169E1;
+  border-radius: 10px;
   float: none;
+}
+.hide{
+    visibility: hidden;
 }
 
 .on {
-  border-radius: 2px;
-  border: 1px dashed #fff;
-  box-shadow: 0 0 0 2px #000, 2px 1px 2px 3px rgba(10, 10, 0, 0.5);
+  border-radius: 50px;
+  border: 1px dashed #4169E1;
+  box-shadow: 0 0 0 2px #00008B, 2px 1px 2px 3px rgba(10, 10, 0, 0.5);
   float: none;
   font-size: 50px;
   font-weight: bold;
   visibility: visible;
   width: 400px;
-  background-color: #000;
-  color: #fff;
+  background-color: #00008B;
+  color: #FFF;
   text-align: center;
   vertical-align: middle;
-  border-radius: 6px;
   word-wrap: break-word;
   padding: 1px;
   position: absolute;
-  margin-top: 10px;
-    margin-top: 320px;
+  margin-top: 320px;
   height: 400px;
   line-height: 200px;
   -webkit-user-select: none;
@@ -217,6 +237,10 @@ ol, ul {
   -moz-user-select: -moz-none;
   -o-user-select: none;
   user-select: none;
+  -webkit-animation: flickerAnimation 5s infinite;
+   -moz-animation: flickerAnimation 1s infinite;
+   -o-animation: flickerAnimation 1s infinite;
+    animation: flickerAnimation 5s infinite;
 }
 
 .on:hover {
@@ -225,4 +249,25 @@ ol, ul {
 
 .off {
   visibility: hidden;
+}
+
+@keyframes flickerAnimation {
+  0%   { opacity:1; }
+  50%  { opacity:0; }
+  100% { opacity:1; }
+}
+@-o-keyframes flickerAnimation{
+  0%   { opacity:1; }
+  50%  { opacity:0; }
+  100% { opacity:1; }
+}
+@-moz-keyframes flickerAnimation{
+  0%   { opacity:1; }
+  50%  { opacity:0; }
+  100% { opacity:1; }
+}
+@-webkit-keyframes flickerAnimation{
+  0%   { opacity:1; }
+  50%  { opacity:0; }
+  100% { opacity:1; }
 }

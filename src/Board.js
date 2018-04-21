@@ -40,7 +40,7 @@ export default class Board extends Component {
     if (calculateWinner(squares) || squares[i]) {
       return (<Square disabled={!this.state.myTurn} value={this.state.squares[i]} class={this.state.activeIndex  !== 0 ? 'psquare' : 'aisquare'}/>);
     }else{
-    return (<Square disabled={this.state.myTurn} value={this.state.squares[i]} class={this.state.activeIndex == 0 ?  'square' : 'square'} onClick={() => this.handleClick(i)}/>);
+    return (<Square disabled={this.state.myTurn} value={this.state.squares[i]} class={this.state.activeIndex === 0 ?  'square' : 'square'} onClick={() => this.handleClick(i)}/>);
   }
 }
 
@@ -57,7 +57,7 @@ export default class Board extends Component {
 
   handleClick = (i) => {
     let squares = [...this.state.squares];
-    let activeIndex = this.activeIndex;
+    let activeIndexB = this.activeIndex;
     if (squares[i]) {
       return alert("Spot already taken");
     }
@@ -67,7 +67,7 @@ export default class Board extends Component {
     this.setState({
       squares,
       myTurn : true,
-      activeIndex: activeIndex+ 1,
+      activeIndex: activeIndexB+ 1,
     });
 
     // Calls setTimeout on the AI logic function and set state to add realistic delay
@@ -75,10 +75,10 @@ export default class Board extends Component {
       const best = maximize(squares);
       squares[best[1]] = "X";
       this.setState({
-        activeIndex,
+        activeIndexB,
         squares,
         myTurn: false,
-        activeIndex: activeIndex++,
+        activeIndex: activeIndexB++,
       }, () => {});},
 1000);
 
@@ -93,7 +93,7 @@ resetButton = () => {
   const winner = calculateWinner(this.state.squares);
 
   if (winner || this.state.squares.indexOf(null) === -1) {
-  return <button className="off">RESET</button>;
+  return <button className="resetButton hide">RESET</button>;
   }else{
     return <button onClick={() => this.handleReset()} className="resetButton">RESET</button>;
   }
