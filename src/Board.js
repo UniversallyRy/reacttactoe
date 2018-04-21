@@ -57,7 +57,7 @@ export default class Board extends Component {
 
   handleClick = (i) => {
     let squares = [...this.state.squares];
-
+    let activeIndex = this.activeIndex;
     if (squares[i]) {
       return alert("Spot already taken");
     }
@@ -67,7 +67,7 @@ export default class Board extends Component {
     this.setState({
       squares,
       myTurn : true,
-      activeIndex: +this.state.activeIndex + 1 ,
+      activeIndex: activeIndex+ 1,
     });
 
     // Calls setTimeout on the AI logic function and set state to add realistic delay
@@ -75,9 +75,10 @@ export default class Board extends Component {
       const best = maximize(squares);
       squares[best[1]] = "X";
       this.setState({
+        activeIndex,
         squares,
         myTurn: false,
-        activeIndex: +this.state.activeIndex + 1,
+        activeIndex: activeIndex++,
       }, () => {});},
 1000);
 
