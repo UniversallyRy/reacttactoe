@@ -35,7 +35,7 @@ const AppWrapper = styled.div`
 `;
 
 const BoardWrap = styled.div`
-  margin-top: 150px;
+  margin-top: 100px;
 `;
 
 const Border = styled.div`
@@ -51,8 +51,9 @@ const GameTitle = styled.h1`
   float: none;
   font-size: 50px;
   font-weight: bold;
-  height: 60px;
-  margin: 30px;
+  height: 90px;
+  line-height: 90px;
+  margin: 19px;
   padding: auto;
   text-align: center;
   width: 600px;
@@ -96,6 +97,7 @@ const OverlayCSS = styled.div`
   padding: 1px;
   position: absolute;
   margin-top: 120px;
+  margin-left: 120px
   height: 400px;
   line-height: 200px;
   animation: ${flickerAnimation} 5s infinite;
@@ -156,19 +158,18 @@ const Psquare = styled.button`
   background: #584ef5;
   color: #00008B;
   border: 1px dashed #00008B;
-  border-radius: 50px;
+  border-radius: 10px;
   box-shadow: 0 0 0 4px #584ef5, 2px 1px 6px 4px rgba(10, 10, 0, 0.5);
   float: left;
-  font-size: 150px;
+  font-size: 100px;
   font-weight: bold;
-  /*line-height: 200px;   makes text move slightly*/
   height: 200px;
-  margin: 4.5px;
-  padding: 1px;
+  margin: 7px;
   text-align: center;
-  text-shadow: -1px -1px gray;
+  text-shadow: -1px -1px #00008B;
   width: 200px;
   opacity: .6;
+
   &:focus {
     outline: none;
   }

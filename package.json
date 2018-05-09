@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "lint-staged": "^7.1.0",
     "node-sass-chokidar": "^1.2.2",
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
