@@ -35,7 +35,7 @@ const AppWrapper = styled.div`
 `;
 
 const BoardWrap = styled.div`
-
+  margin-top: 150px;
 `;
 
 const Border = styled.div`
