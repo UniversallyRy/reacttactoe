@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-const {maximize, calculateWinner} = require('./GameAI');
+import {maximize, calculateWinner} from './GameAI';
 
 function Square(props) {
 
