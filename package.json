@@ -3,10 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "lint-staged": "^7.1.0",
     "node-sass-chokidar": "^1.2.2",
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
-    "react-scripts": "1.1.4"
+    "react-scripts": "1.1.4",
+    "styled-components": "^3.2.6",
   },
   "scripts": {
     "build-css": "node-sass-chokidar src/ -o src/",
@@ -14,7 +16,17 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "pre-commit": "lint-staged"
+    },
+    "pre-commit": [
+      "pre-commit"
+    ],
+    "lint-staged": {
+      "*.js": [
+        "prettier --write",
+        "git add -A"
+      ]
   },
   "devDependencies": {
     "babel-eslint": "^8.2.3",
