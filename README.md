@@ -1,3 +1,9 @@
-# Tic Tac Toe
+# Tic Tac Toe built with React
 
-## Simple React App creating a Tic Tac Toe game but adding a supposedly Unbeatable AI w/ Minimax Algorithm learned from FCC.
+---
+
+##### Simple Tic Tac Toe app created with create-react-app.
+
+##### [Minimax Algorithm](https://en.wikipedia.org/wiki/Minimax) implemented to create an unbeatable A.I.
+
+##### You can find a demo Hosted on heroku here. https://myreact-tac-toe.herokuapp.com/
