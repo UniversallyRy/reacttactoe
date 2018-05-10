@@ -10,17 +10,19 @@ export default class Board extends Component {
       squares: new Array(9).fill(null),
       gameover: true,
       myTurn: false,
-      activeIndex: 0,
     }
   }
     // Renders the square and inserts the values(o, x's) and adds event listeners
   renderSquare = (i) => {
+    const winner = calculateWinner(this.state.squares);
     let squares = [...this.state.squares];
 
-    if (calculateWinner(squares) || squares[i]) {
-      return (<Square disabled={true} value={this.state.squares[i]}/>);
+    if (squares[i] === 'O') {
+      return (<Square disabled={true}  player={"player"} value={this.state.squares[i]}/>);
+    }else if (squares[i] === 'X') {
+      return (<Square disabled={true}  player={'AI'} value={this.state.squares[i]}/>);
     }else{
-    return (<Square disabled={this.state.myTurn} value={this.state.squares[i]} onClick={() => this.handleClick(i)}/>);
+    return (<Square disabled={winner ? true : this.state.myTurn} value={this.state.squares[i]} onClick={() => this.handleClick(i)}/>);
   }
 }
 
@@ -36,26 +38,22 @@ export default class Board extends Component {
 
   handleClick = (i) => {
     let squares = [...this.state.squares];
-    let activeIndexB = this.activeIndex;
     // Adds player choice as soon as clicked
     squares[i] = "O";
     // squares[i].currentTarget = this.state.activeIndex;
     this.setState({
       squares,
-      myTurn : true,
-      activeIndex: activeIndexB++,
+      myTurn : !this.state.myTurn,
     });
     // Calls setTimeout on the AI logic function and set state to add realistic delay
     setTimeout(() => {
       const best = maximize(squares);
       squares[best[1]] = "X";
       this.setState({
-        activeIndexB,
         squares,
-        myTurn: false,
-        activeIndex: activeIndexB++,
+        myTurn: !this.state.myTurn,
       }, () => {});},
-1000);
+500);
 
 }
 // Function that resets the board by resetting the state to def vals

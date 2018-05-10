@@ -79,7 +79,7 @@ const Status = styled.div`
   padding: 1px;
   text-align: center;
   width: 200px;
-  opacity: .5;
+  opacity: .7;
 `;
 
 const OverlayCSS = styled.div`
@@ -132,7 +132,7 @@ const ResetButton = styled.button`
   padding: 1px;
   text-align: center;
   width: 200px;
-  opacity: .5;
+  opacity: .9;
   font-family: Fascinate, sans-serif;
   visibility: ${
       props => props.gameover ? "visible" : "hidden"
@@ -159,11 +159,15 @@ const BoardRow = styled.div`
 `;
 const Psquare = styled.button`
   font-family: Fascinate, sans-serif;
-  background: #584ef5;
+  background: ${
+      props => props.player === 'player' ? "#3175e2" : props.player === 'AI' ? "#7aadff" : "#584ef5"
+    };
   color: #00008B;
   border: 1px dashed #00008B;
   border-radius: 10px;
-  box-shadow: 0 0 0 4px #584ef5, 2px 1px 6px 4px rgba(10, 10, 0, 0.5);
+  box-shadow: ${
+      props => props.player === 'player' ? "0 0 0 4px #3175e2, 2px 1px 6px 4px rgba(10, 10, 0, 0.5)" : props.player === 'AI' ? "0 0 0 4px #7aadff, 2px 1px 6px 4px rgba(10, 10, 0, 0.5)" : "0 0 0 4px #584ef5, 2px 1px 6px 4px rgba(10, 10, 0, 0.5)"
+    };
   float: left;
   font-size: 100px;
   font-weight: bold;
@@ -172,7 +176,9 @@ const Psquare = styled.button`
   text-align: center;
   text-shadow: -1px -1px #00008B;
   width: 200px;
-  opacity: .6;
+  opacity: ${
+    props => props.player === 'player' ? "1" : props.player === 'AI' ? ".8" : ".6"
+};
 
   &:focus {
     outline: none;

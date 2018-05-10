@@ -9,7 +9,8 @@ const Square = props => {
       pointerEvents: props.disabled
         ? 'none'
         : 'auto'
-    }} onClick={props.onClick}>
+    }} onClick={props.onClick}
+    player={props.player}>
     {props.value}
   </Psquare>);
 }
