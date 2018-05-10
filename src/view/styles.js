@@ -21,17 +21,10 @@ const AppWrapper = styled.div`
   display: flex;
   flex-direction: column;
   word-wrap: break-word;
-  background:
-    -webkit-linear-gradient(45deg, hsla(243, 100%, 49%, 1) 0%, hsla(243, 100%, 49%, 0) 70%),
-    -webkit-linear-gradient(315deg, hsla(244, 91%, 44%, 1) 10%, hsla(244, 91%, 44%, 0) 80%),
-    -webkit-linear-gradient(225deg, hsla(211, 99%, 50%, 1) 10%, hsla(211, 99%, 50%, 0) 80%),
-    -webkit-linear-gradient(135deg, hsla(10, 97%, 49%, 1) 100%, hsla(10, 97%, 49%, 0) 70%);
-  background:
-    linear-gradient(45deg, hsla(243, 100%, 49%, 1) 0%, hsla(243, 100%, 49%, 0) 70%),
-    linear-gradient(135deg, hsla(244, 91%, 44%, 1) 10%, hsla(244, 91%, 44%, 0) 80%),
-    linear-gradient(225deg, hsla(211, 99%, 50%, 1) 10%, hsla(211, 99%, 50%, 0) 80%),
-    linear-gradient(315deg, hsla(10, 97%, 49%, 1) 100%, hsla(10, 97%, 49%, 0) 70%);
-  opacity: 0.7;
+  background: #F00000;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #DC281E, #F00000);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #DC281E, #F00000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  opacity: 1;
 `;
 
 const BoardWrap = styled.div`
@@ -43,15 +36,16 @@ const BoardWrap = styled.div`
 `;
 
 const Border = styled.div`
-  border: 3px solid #00008B;
+  border: 3px solid #000;
+  opacity: .9;
 `;
 
 const GameTitle = styled.h1`
-  background: #4169E1;
-  border: 1px dashed #00008B;
+  background: #000;
+  border: 1px dashed #F00000;
   border-radius: 50px;
-  box-shadow: 0 0 0 2px #4169E1, 1px 3px 5px 2px rgba(10, 10, 0, 0.5);
-  color: #00008B;
+  box-shadow: 0 0 0 2px #000, 1px 3px 5px 2px rgba(10, 10, 0, 0.5);
+  color: #F00000;
   float: none;
   font-size: 50px;
   font-weight: bold;
@@ -64,11 +58,11 @@ const GameTitle = styled.h1`
 `;
 
 const Status = styled.div`
-  color:#00008B;
-  background: #4169E1;
-  border: .5px dashed #00008B;
+  color:#F00000;
+  background: #000;
+  border: .5px dashed #F00000;
   border-radius: 2px;
-  box-shadow: 0 0 0 2px #4169E1, 2px 1px 2px 3px rgba(10, 10, 0, 0.5);
+  box-shadow: 0 0 0 2px #000, 2px 1px 2px 3px rgba(10, 10, 0, 0.5);
   font-size: 24px;
   font-weight: bold;
   line-height: 20px;
@@ -79,13 +73,13 @@ const Status = styled.div`
   padding: 1px;
   text-align: center;
   width: 200px;
-  opacity: .7;
+  opacity: 1;
 `;
 
 const OverlayCSS = styled.div`
   border-radius: 50px;
-  border: 1px dashed #4169E1;
-  box-shadow: 0 0 0 2px #00008B, 2px 1px 2px 3px rgba(10, 10, 0, 0.5);
+  border: 1px dashed #F00000;
+  box-shadow: 0 0 0 2px #000, 2px 1px 2px 3px rgba(10, 10, 0, 0.5);
   float: none;
   font-size: 50px;
   font-weight: bold;
@@ -93,8 +87,8 @@ const OverlayCSS = styled.div`
       props => props.gameover ? "visible" : "hidden"
     };
   width: 400px;
-  background-color: #00008B;
-  color: #FFF;
+  background-color: #000;
+  color: #F00000;
   text-align: center;
   vertical-align: middle;
   word-wrap: break-word;
@@ -107,7 +101,7 @@ const OverlayCSS = styled.div`
   animation: ${flickerAnimation} 5s infinite;
 
   &:hover {
-    opacity: 0.7;
+    opacity: 0.5;
   }
 
 `;
@@ -119,10 +113,10 @@ const Reset = styled.div`
 
 const ResetButton = styled.button`
   border-radius: 180px;
-  background: #4169E1;
-  border: 1px dashed #00008B;
-  box-shadow: 0 0 0 2px #4169E1, 2px 1px 2px 3px rgba(10, 10, 0, 0.5);
-  color: #00008B;
+  background: #000;
+  border: 1px dashed #F00000;
+  box-shadow: 0 0 0 2px #000, 2px 1px 2px 3px rgba(10, 10, 0, 0.5);
+  color: #F00000;
   margin-left: 210px;
   font-size: 24px;
   font-weight: bold;
@@ -132,16 +126,16 @@ const ResetButton = styled.button`
   padding: 1px;
   text-align: center;
   width: 200px;
-  opacity: .9;
+  opacity: 1;
   font-family: Fascinate, sans-serif;
   visibility: ${
       props => props.gameover ? "visible" : "hidden"
     };
     &:hover {
-      background: #00008B;
-      border: 1px dashed #00008B;
-      box-shadow: 0 0 0 2px #00008B, 2px 1px 2px 3px rgba(10, 10, 0, 0.5);
-      color: #4169E1;
+      background: #F00000;
+      border: 1px dashed #F00000;
+      box-shadow: 0 0 0 2px #F00000, 2px 1px 2px 3px rgba(10, 10, 0, 0.5);
+      color: #000;
       border-radius: 10px;
       float: none;
     }
@@ -160,13 +154,17 @@ const BoardRow = styled.div`
 const Psquare = styled.button`
   font-family: Fascinate, sans-serif;
   background: ${
-      props => props.player === 'player' ? "#3175e2" : props.player === 'AI' ? "#7aadff" : "#584ef5"
+      props => props.player === 'player' ? "#000" : props.player === 'AI' ? "#DC281E" : "#666666"
     };
-  color: #00008B;
-  border: 1px dashed #00008B;
-  border-radius: 10px;
+  color: ${
+    props => props.player === 'player' ? "#F00000;" : props.player === 'AI' ? "#000;" : "#F00000;"
+  };
+  border:${
+    props => props.player === 'player' ? "1px dashed #F00000" : props.player === 'AI' ? "1px dashed #000;" : "1px dashed #F00000"
+  };
+  border-radius: 5px;
   box-shadow: ${
-      props => props.player === 'player' ? "0 0 0 4px #3175e2, 2px 1px 6px 4px rgba(10, 10, 0, 0.5)" : props.player === 'AI' ? "0 0 0 4px #7aadff, 2px 1px 6px 4px rgba(10, 10, 0, 0.5)" : "0 0 0 4px #584ef5, 2px 1px 6px 4px rgba(10, 10, 0, 0.5)"
+      props => props.player === 'player' ? "0 0 0 4px #000, 2px 1px 6px 4px rgba(10, 10, 0, 0.5)" : props.player === 'AI' ? "0 0 0 4px #DC281E, 4px 2px 12px 8px rgba(10, 10, 0, 0.5)" : "0 0 0 4px #666666, 2px 1px 6px 4px rgba(10, 10, 0, 0.5)"
     };
   float: left;
   font-size: 100px;
@@ -174,19 +172,18 @@ const Psquare = styled.button`
   height: 200px;
   margin: 7px;
   text-align: center;
-  text-shadow: -1px -1px #00008B;
+  text-shadow: -1px -1px #F00000;
   width: 200px;
-  opacity: ${
-    props => props.player === 'player' ? "1" : props.player === 'AI' ? ".8" : ".6"
-};
 
   &:focus {
     outline: none;
   }
   &:hover {
-    background: #00008B;
-    border-radius: 10px;
-    box-shadow: 0 0 0 4px #00008B, 2px 1px 6px 4px rgba(10, 10, 0, 0.5);
+    opacity: 1;
+    border: 1px dashed #000;
+    background: #000;
+    border-radius: 1px;
+    box-shadow: 0 0 0 4px #000, 2px 1px 6px 4px rgba(10, 10, 0, 0.5);
   }
 `
 
