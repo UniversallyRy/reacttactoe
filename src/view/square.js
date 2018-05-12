@@ -5,11 +5,13 @@ const Square = props => {
 
   return (
   // adds props on square component to change value when click the square
-  <Psquare style={{
+  <Psquare
+    style={{
       pointerEvents: props.disabled
         ? 'none'
         : 'auto'
-    }} onClick={props.onClick}
+    }}
+    onClick={props.onClick}
     player={props.player}>
     {props.value}
   </Psquare>);
