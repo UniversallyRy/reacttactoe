@@ -103,7 +103,4 @@ const maximize = (board) => {
   return [bestValue, bestMove];
 };
 
-module.exports = {
-  maximize,
-  calculateWinner
-};
+export {maximize, calculateWinner};
