@@ -18,7 +18,9 @@ export default class Board extends Component {
     let squares = [...this.state.squares];
 
     if (squares[i] === 'O') {
+      // Returns selected player square
       return (<Square disabled={true}  player={'player'} value={this.state.squares[i]}/>);
+      // Returns AI square afterwards
     }else if (squares[i] === 'X') {
       return (<Square disabled={true}  player={'AI'} value={this.state.squares[i]}/>);
     }else{
@@ -41,17 +43,15 @@ export default class Board extends Component {
     // Adds player choice as soon as clicked
     squares[i] = 'O';
     // squares[i].currentTarget = this.state.activeIndex;
-    this.setState({
-      squares,
-      myTurn : !this.state.myTurn,
+    this.setState(currentState => {
+      return {squares, myTurn: !currentState.myTurn}
     });
     // Calls setTimeout on the AI logic function and set state to add realistic delay
     setTimeout(() => {
       const best = maximize(squares);
       squares[best[1]] = 'X';
-      this.setState({
-        squares,
-        myTurn: !this.state.myTurn,
+      this.setState(currentState => {
+        return {squares, myTurn: !currentState.myTurn,}
       }, () => {});},
 500);
 
