@@ -61,6 +61,7 @@ handleReset = () => {
 this.setState({squares: Array(9).fill(null), myTurn: false});
 };
 
+// Restores states back to initials
 resetButton = () => {
   const winner = calculateWinner(this.state.squares);
 
