@@ -12,6 +12,7 @@ export default class Board extends Component {
       myTurn: false,
     }
   }
+  
     // Renders the square and inserts the values(o, x's) and adds event listeners
   renderSquare = (i) => {
     const winner = calculateWinner(this.state.squares);
@@ -29,10 +30,15 @@ export default class Board extends Component {
 }
 
   renderOverlay = () => {
-    const winner = calculateWinner(this.state.squares);
+    let winner = calculateWinner(this.state.squares);
 
     if(winner) {
-      return (<OverlayCSS gameover={this.state.gameover} onClick={this.handleReset}> {`Player ${winner} won! Replay?`} </OverlayCSS>)
+      if(winner === 'X') {
+        winner = 'CPU';
+      }else{
+        winner = 'You';
+      }
+      return (<OverlayCSS gameover={this.state.gameover} onClick={this.handleReset}> {`${winner} won! Replay?`} </OverlayCSS>)
     }else if (this.state.squares.indexOf(null) === -1) {
       return (<OverlayCSS gameover={this.state.gameover} onClick={this.handleReset}> Draw!  Play Again? </OverlayCSS>)
     }
