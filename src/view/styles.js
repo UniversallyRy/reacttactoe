@@ -1,6 +1,5 @@
-import styled from 'styled-components';
-import { keyframes } from "styled-components";
-import { injectGlobal } from 'styled-components';
+// styled-components used instead of plain css for personal perference of keeping everything JS
+import styled, {keyframes, injectGlobal} from 'styled-components';
 
 injectGlobal`
   html {
@@ -35,13 +34,11 @@ const AppWrapper = styled.div`
   flex-direction: column;
   font-family: Fascinate, sans-serif;
   height:100vh;
-  opacity: 1;
   word-wrap: break-word;
 `;
 
 const BoardWrap = styled.div`
-  background-color: #6190E8;
-  border-radius 15px;
+  // background-color: #6190E8;
   margin-top: 150px;
   -webkit-user-select: none; /* Safari 3.1+ */
   -moz-user-select: none; /* Firefox 2+ */
@@ -49,88 +46,48 @@ const BoardWrap = styled.div`
   user-select: none; /* Standard syntax */
 `;
 
-const Border = styled.div`
-  border: 1.6px solid #cbb4d4;
-  border-radius: 10px;
-  opacity: .9;
-`;
-
 const GameTitle = styled.h1`
-  background: #cbb4d4;
-  border: 1px dashed #a044ff;
-  border-radius: 50px;
-  box-shadow: 0 0 0 2px #cbb4d4, 1px 3px 5px 2px rgba(10, 10, 0, 0.5);
-  color: #a044ff;
+  background: #a044ff;
+  border-radius: -1px;
+  border: .5px solid #cbb4d4;
+  color: #cbb4d4;
   float: none;
-  font-size: 50px;
+  font-size: 40px;
   font-weight: bold;
-  height: 90px;
-  line-height: 90px;
-  margin: 19px;
+  height: 40px;
+  line-height: 40px;
+  margin-left: 40px;
   padding: auto;
   text-align: center;
-  width: 600px;
+  width: 420px;
 `;
 
 const Status = styled.div`
-  animation: ${hideStatus} 5s ease-in .2s forwards;
+  animation: ${hideStatus /* fades out status div after 5 seconds*/} 5s ease-in .2s forwards;
   background: #cbb4d4;
-  border: .5px dashed #a044ff;
   border-radius: 2px;
   box-shadow: 0 0 0 2px #cbb4d4, 2px 1px 2px 3px rgba(10, 10, 0, 0.5);
   color:#a044ff;
-  font-size: 24px;
+  font-size: 14px;
   font-weight: bold;
-  line-height: 20px;
+  line-height: 50px;
   float: none;
-  height: 20px;
-  margin-left: 210px;
+  height: 50px;
+  margin-left: 160px;
   margin-bottom: 50px;
-  opacity: 1;
-  padding: 1px;
+  padding: auto;
   text-align: center;
   width: 200px;
 `;
 
-const OverlayCSS = styled.div`
-  animation: ${flickerAnimation} 5s infinite;
-  background-color: #cbb4d4;
-  border-radius: 50px;
-  border: 1px dashed #a044ff;
-  box-shadow: 0 0 0 2px #cbb4d4, 2px 1px 2px 3px rgba(10, 10, 0, 0.5);
-  color: #a044ff;
-  float: none;
-  font-size: 50px;
-  font-weight: bold;
-  height: 400px;
-  line-height: 200px;
-  margin-left: 120px;
-  margin-top: 120px;
-  padding: 1px;
-  position: absolute;
-  text-align: center;
-  vertical-align: middle;
-  visibility: ${
-    props => props.gameover ? "visible" : "hidden"
-  };
-  width: 400px;
-  word-wrap: break-word;
-
-    &:hover {
-      opacity: 0.5;
-    }
-
-`;
-
 const Reset = styled.div`
   margin-bottom: 20px;
-  padding: auto;
+  
 `;
 
 const ResetButton = styled.button`
-  border-radius: 180px;
   background: #cbb4d4;
-  border: .5px dashed #a044ff;
+  border: .5px solid #a044ff;
   box-shadow: 0 0 0 2px #cbb4d4, 2px 1px 2px 3px rgba(10, 10, 0, 0.5);
   color: #a044ff;
   font-family: Fascinate, sans-serif;
@@ -138,23 +95,23 @@ const ResetButton = styled.button`
   font-weight: bold;
   height: 40px;
   line-height: 20px;
-  margin-left: 210px;
+  margin-left: 160px;
   margin-top: 10px;
   opacity: 1;
   padding: 1px;
   text-align: center;
   width: 200px;
   visibility: ${
+    // prop to hide reset button when game is over
       props => props.gameover ? "visible" : "hidden"
     };
 
     &:hover {
-      background: #CFDEF3;
-      border: 1px dashed #CFDEF3;
-      box-shadow: 0 0 0 2px #CFDEF3, 2px 1px 2px 3px rgba(10, 10, 0, 0.5);
-      text-shadow: -1px -1px #000046;
-      color: #a044ff;
-      border-radius: 10px;
+      background: #a044ff;
+      border: 1px dashed #a044ff;
+      box-shadow: 0 0 0 2px #a044ff, 2px 1px 2px 3px rgba(10, 10, 0, 0.5);
+      text-shadow: -1px #cbb4d4;
+      color: #cbb4d4;
       float: none;
     }
 
@@ -170,40 +127,81 @@ const BoardRow = styled.div`
     display: table;
   }
 `;
-const Psquare = styled.button`
+
+const Psquares = styled.button`
   background: ${
-    props => props.player === 'player' ? "#B2FEFA" : props.player === 'AI' ? "#000046" : "#a044ff"
+    // Props used to input player square colors when given a value
+    props => props.player === 'player' ? "#cbb4d4" : props.player === 'AI' ? "#000046" : "#a044ff"
   };
   color: ${
-    props => props.player === 'player' ? "#a044ff;" : props.player === 'AI' ? "#B2FEFA;" : "#F00000;"
+    props => props.player === 'player' ? "#a044ff" : props.player === 'AI' ? "#B2FEFA" : "#F00000"
   };
   border:${
-    props => props.player === 'player' ? "1px dashed #B2FEFA" : props.player === 'AI' ? "1px dashed #000046;" : "1px dashed #a044ff"
+    props => props.player === 'player' ? "1px dashed #cbb4d4" : props.player === 'AI' ? "1px dashed #000046" : "1px dashed #a044ff"
   };
-  border-radius: 5px;
+  border-radius: 2px;
   box-shadow: ${
-    props => props.player === 'player' ? "0 0 0 4px #B2FEFA, 2px 1px 6px 4px rgba(10, 10, 0, 0.5)" : props.player === 'AI' ? "0 0 0 4px #000046, 4px 2px 12px 8px rgba(10, 10, 0, 0.3)" : "0 0 0 4px #a044ff, 2px 1px 6px 4px rgba(10, 10, 0, 0.5)"
+    props => props.player === 'player' ? "0 0 0 4px #cbb4d4, 1px 4px 10px 10px rgba(60, 52, 102, 0.9)" : props.player === 'AI' ? "0 0 0 4px #000046, 4px 2px 12px 8px rgba(10, 10, 0, 0.3)" : "0 0 0 4px #a044ff, 2px 1px 6px 4px rgba(10, 10, 0, 0.5)"
   };
   float: left;
   font-family: Fascinate, sans-serif;
-  font-size: 100px;
+  font-size: 50px;
   font-weight: bold;
-  height: 200px;
-  margin: 7px;
+  height: 150px;
+  width: 150px;
+  margin: 10px;
   text-align: center;
-  text-shadow: -1px -1px #000046;
-  width: 200px;
+  text-shadow: 1px .6px #grey;
 
     &:focus {
       outline: none;
     }
     &:hover {
-      background: #B2FEFA;
-      border: 1px dashed #B2FEFA;
+      background: #cbb4d4;
+      border: 1px dashed #cbb4d4;
       border-radius: 1px;
-      box-shadow: 0 0 0 4px #B2FEFA, 2px 1px 6px 4px rgba(10, 10, 0, 0.5);
+      box-shadow: 0 0 0 4px #cbb4d4, 2px 1px 6px 4px rgba(10, 10, 0, 0.5);
       opacity: 1;
     }
-`
+`;
 
-export {AppWrapper, BoardWrap, Border, GameTitle, OverlayCSS, Status, Reset, ResetButton, BoardRow, Psquare};
+const OverlayCSS = styled.div`
+  animation: ${flickerAnimation} 5s infinite;
+  background: ${
+    // Match overlay with whoever won
+    props => props.player === 'O' ? "#cbb4d4" : props.player === 'X' ? "#000046" : "#a044ff"
+  };
+  color: ${
+    props => props.player === 'O' ? "#a044ff" : props.player === 'X' ? "#cbb4d4" : "black"
+  };
+  border:${
+    props => props.player === 'O' ? "1px dashed #cbb4d4" : props.player === 'X' ? "1px dashed #000046" : "1px dashed #a044ff"
+  };
+  border-radius: 10px;
+  box-shadow: 0 0 0 2px #cbb4d4, 2px 1px 2px 3px rgba(10, 10, 0, 0.5);
+  float: none;
+  font-size: 50px;
+  font-weight: bold;
+  height: 400px;
+  line-height: 200px;
+  margin-left: 60px;
+  margin-top: 120px;
+  padding: 1px;
+  position: absolute;
+  text-align: center;
+  vertical-align: middle;
+  visibility: ${
+    // Prop to show overlay only when a game is over
+    props => props.gameover ? "visible" : "hidden"
+  };
+  width: 400px;
+  word-wrap: break-word;
+
+    &:hover {
+      opacity: 0.5;
+    }
+
+`;
+
+
+export {AppWrapper, BoardWrap, GameTitle, Status, Reset, ResetButton, BoardRow, Psquares, OverlayCSS};

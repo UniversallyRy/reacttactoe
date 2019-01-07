@@ -1,3 +1,12 @@
+// Functions used to generate game mechanics
+// such as logic to calculate the AI's best potential move
+// and calculating the squares(array) positions for a winning game 
+
+
+// (board) param is simply this.state.squares in Board.js
+
+// checks state.squares[i] for "O" or "X" values and if none 
+// pushes that squares[i] index to result array  
 const getAvailableSpots = (board) => {
   let result = [];
   for (let i = 0; i < board.length; i++) {
@@ -8,6 +17,8 @@ const getAvailableSpots = (board) => {
   return result;
 };
 
+// logic to find if any of these 8 combos contains either 
+// all "X" or "O", 
 const calculateWinner = (board) => {
   const winningRows = [
     [
@@ -35,18 +46,21 @@ const calculateWinner = (board) => {
       2, 4, 6
     ]
   ];
+  // Loops through winningRows array, and checks if squares at those 
+  // indexes all have the same value, either "X" or "O" 
   for (let i = 0; i < winningRows.length; i++) {
     const [a, b, c] = winningRows[i];
     if (board[a] && board[a] === board[b] && board[a] === board[c]) {
+      // If they have same value return true and that value
       return true && board[a];
     }
   }
   return false;
 };
 
+// Logic used to calculate the best move for the AI
 const minimize = (board) => {
 
-  //AI minimizes  y score
   const moves = getAvailableSpots(board);
   if (calculateWinner(board)) {
     return 1;
@@ -74,19 +88,19 @@ const minimize = (board) => {
 };
 
 const maximize = (board) => {
-  //maximize my score
   const moves = getAvailableSpots(board);
-  // if someone won return - 1
+
   if (calculateWinner(board)) {
     return -1;
   }
-  // if no more spaces to play return 0
+
   if (!moves.length) {
     return 0;
   }
 
   let bestMove;
   let bestValue = -100000;
+
   for (let i = 0; i < moves.length; i++) {
     board[moves[i]] = 'X';
     let hValue = minimize(board);
