@@ -1,5 +1,5 @@
 import React from 'react';
-import {Psquares} from './styles.js'
+import {Psquares} from './styles.js';
 
 const Square = props => {
 
