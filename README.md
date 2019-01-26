@@ -6,4 +6,4 @@
 
 ##### [Minimax Algorithm](https://en.wikipedia.org/wiki/Minimax) implemented to create an unbeatable A.I.
 
-##### You can find a demo Hosted on heroku here. https://myreact-tac-toe.herokuapp.com/
+##### You can find a demo Hosted on heroku here. http://IronyOfRyan.github.io/reacttactoe
