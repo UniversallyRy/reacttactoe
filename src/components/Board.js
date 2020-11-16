@@ -14,7 +14,7 @@ export default class Board extends Component {
       aiScore: 0
     }
   }
-  
+
     // Renders the square and inserts the values(o, x's) and adds event listeners
   renderSquare = (i) => {
     const winner = calculateWinner(this.state.squares);

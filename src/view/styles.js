@@ -84,7 +84,7 @@ const Status = styled.div`
 
 const Reset = styled.div`
   margin-bottom: 20px;
-  
+
 `;
 
 const ResetButton = styled.button`
