@@ -1,9 +1,11 @@
-# Tic Tac Toe built with React
+# Getting Started with Create React App
 
----
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-##### Simple Tic Tac Toe app created with create-react-app.
+## Available Scripts
 
-##### [Minimax Algorithm](https://en.wikipedia.org/wiki/Minimax) implemented to create an unbeatable A.I.
+In the project directory, you can run:
 
-##### You can find a demo hosted on Github Pages [Here](https://universallyry.github.io/reacttactoe/).
+### `npm start`
+
+Runs the app in
