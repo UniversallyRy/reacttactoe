@@ -27,6 +27,7 @@ const hideStatus = keyframes`
 
 const AppWrapper = styled.div`
   margin: 0 auto;
+  margin-bottom: ;
   clear: both;
   align-items: center;
   background: #673AB7;  /* fallback for old browsers */
@@ -35,13 +36,14 @@ const AppWrapper = styled.div`
   display: flex;
   flex-direction: column;
   font-family: Fascinate, sans-serif;
-  height:100vh;
+  height:100%;
   word-wrap: break-word;
 `;
 
 const BoardWrap = styled.div`
   // background-color: #6190E8;
   margin-top: 50px;
+  margin-bottom: 10px;
   -webkit-user-select: none; /* Safari 3.1+ */
   -moz-user-select: none; /* Firefox 2+ */
   -ms-user-select: none; /* IE 10+ */
@@ -204,6 +206,5 @@ const OverlayCSS = styled.div`
     }
 
 `;
-
 
 export {AppWrapper, BoardWrap, GameTitle, Status, Reset, ResetButton, BoardRow, Psquares, OverlayCSS};
