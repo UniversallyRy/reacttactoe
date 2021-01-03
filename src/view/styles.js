@@ -41,7 +41,6 @@ const AppWrapper = styled.div`
 `;
 
 const BoardWrap = styled.div`
-  // background-color: #6190E8;
   margin-top: 50px;
   margin-bottom: 10px;
   -webkit-user-select: none; /* Safari 3.1+ */
