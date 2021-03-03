@@ -1,13 +1,6 @@
 // styled-components used instead of plain css for personal perference of keeping everything JS
 import styled, { keyframes } from "styled-components";
 
-// const GlobalStyle = createGlobalStyle`
-//   html {
-//     height: 100%;
-//     width: 100%;
-//   }
-// `;
-
 const flickerAnimation = keyframes`
   0%   { opacity:1; }
   50%  { opacity:0; }
@@ -26,20 +19,7 @@ const hideStatus = keyframes`
 `;
 
 const AppWrapper = styled.div`
-  margin: 0;
-  height: 100%;
   align-items: center;
-  background: #673ab7; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to top,
-    #512da8,
-    #673ab7
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to top,
-    #512da8,
-    #673ab7
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   display: flex;
   flex-direction: column;
   font-family: Fascinate, sans-serif;
