@@ -1,12 +1,11 @@
 // Functions used to generate game mechanics
 // such as logic to calculate the AI's best potential move
-// and calculating the squares(array) positions for a winning game 
-
+// and calculating the squares(array) positions for a winning game
 
 // (board) param is simply this.state.squares in Board.js
 
-// checks state.squares[i] for "O" or "X" values and if none 
-// pushes that squares[i] index to result array  
+// checks state.squares[i] for "O" or "X" values and if none
+// pushes that squares[i] index to result array
 const getAvailableSpots = (board) => {
   let result = [];
   for (let i = 0; i < board.length; i++) {
@@ -17,37 +16,21 @@ const getAvailableSpots = (board) => {
   return result;
 };
 
-// logic to find if any of these 8 combos contains either 
-// all "X" or "O", 
+// logic to find if any of these 8 combos contains either
+// all "X" or "O",
 const calculateWinner = (board) => {
   const winningRows = [
-    [
-      0, 1, 2
-    ],
-    [
-      3, 4, 5
-    ],
-    [
-      6, 7, 8
-    ],
-    [
-      0, 3, 6
-    ],
-    [
-      1, 4, 7
-    ],
-    [
-      2, 5, 8
-    ],
-    [
-      0, 4, 8
-    ],
-    [
-      2, 4, 6
-    ]
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6],
   ];
-  // Loops through winningRows array, and checks if squares at those 
-  // indexes all have the same value, either "X" or "O" 
+  // Loops through winningRows array, and checks if squares at those
+  // indexes all have the same value, either "X" or "O"
   for (let i = 0; i < winningRows.length; i++) {
     const [a, b, c] = winningRows[i];
     if (board[a] && board[a] === board[b] && board[a] === board[c]) {
@@ -60,7 +43,6 @@ const calculateWinner = (board) => {
 
 // Logic used to calculate the best move for the AI
 const minimize = (board) => {
-
   const moves = getAvailableSpots(board);
   if (calculateWinner(board)) {
     return 1;
@@ -72,7 +54,7 @@ const minimize = (board) => {
   let bestMove;
   let bestValue = 100000;
   for (let i = 0; i < moves.length; i++) {
-    board[moves[i]] = 'O';
+    board[moves[i]] = "O";
     let hValue = maximize(board);
     if (Array.isArray(hValue)) {
       hValue = hValue[0];
@@ -102,7 +84,7 @@ const maximize = (board) => {
   let bestValue = -100000;
 
   for (let i = 0; i < moves.length; i++) {
-    board[moves[i]] = 'X';
+    board[moves[i]] = "X";
     let hValue = minimize(board);
     if (Array.isArray(hValue)) {
       hValue = hValue[0];
@@ -117,4 +99,4 @@ const maximize = (board) => {
   return [bestValue, bestMove];
 };
 
-export {maximize, calculateWinner};
+export { maximize, calculateWinner };

@@ -1,7 +1,15 @@
-import React, {Component} from 'react';
-import Square from '../view/square.js';
-import {BoardWrap, GameTitle, Status, Reset, ResetButton, BoardRow, OverlayCSS} from '../view/styles.js'
-import {maximize, calculateWinner} from './GameAI';
+import React, { Component } from "react";
+import Square from "../view/square.js";
+import {
+  BoardWrap,
+  GameTitle,
+  Status,
+  Reset,
+  ResetButton,
+  BoardRow,
+  OverlayCSS,
+} from "../view/styles.js";
+import { maximize, calculateWinner } from "./GameAI";
 
 // EVERYTHING THAT APPEARS IN OR AROUND BOARD
 export default class Board extends Component {
@@ -11,26 +19,40 @@ export default class Board extends Component {
       squares: new Array(9).fill(null),
       myTurn: true,
       userScore: 0,
-      aiScore: 0
-    }
+      aiScore: 0,
+    };
   }
 
-    // Renders the square and inserts the values(o, x's) and adds event listeners
+  // Renders the square and inserts the values(o, x's) and adds event listeners
   renderSquare = (i) => {
     const winner = calculateWinner(this.state.squares);
     let squares = [...this.state.squares];
 
-    if (squares[i] === 'O') {
+    if (squares[i] === "O") {
       // Returns a new square with player atr and 'O' text(value) when clicked
-      return (<Square disabled={true}  player={'player'} value={this.state.squares[i]}/>);
+      return (
+        <Square
+          disabled={true}
+          player={"player"}
+          value={this.state.squares[i]}
+        />
+      );
       // Does the same for AI
-    }else if (squares[i] === 'X') {
-      return (<Square disabled={true}  player={'AI'} value={this.state.squares[i]}/>);
-    }else{
+    } else if (squares[i] === "X") {
+      return (
+        <Square disabled={true} player={"AI"} value={this.state.squares[i]} />
+      );
+    } else {
       // Default rendered squares when ...squares[i] is empty(nulled)
-    return (<Square disabled={winner ? true : !this.state.myTurn} value={this.state.squares[i]} onClick={() => this.handleClick(i)}/>);
+      return (
+        <Square
+          disabled={winner ? true : !this.state.myTurn}
+          value={this.state.squares[i]}
+          onClick={() => this.handleClick(i)}
+        />
+      );
     }
-  }
+  };
 
   renderOverlay = () => {
     let winner = calculateWinner(this.state.squares);
@@ -39,38 +61,44 @@ export default class Board extends Component {
     //   return {aiScore: currentScore.aiScore++}
     // }) : 'You';
 
-    if(winner) {
-      let gameWinner = (winner === 'X') ? 'CPU' : 'You';
-      
-      return (<OverlayCSS player={winner} gameover={true} onClick={this.handleReset}> {`${gameWinner} won! Click to Replay`} </OverlayCSS>)
-    //checks squares states to see if all the default null state values are gone
-    }else if (!this.state.squares.includes(null)) {
-      return (<OverlayCSS gameover={true} onClick={this.handleReset}> Draw!  Click to Replay </OverlayCSS>)
-    }
-  }
+    if (winner) {
+      let gameWinner = winner === "X" ? "CPU" : "You";
 
+      return (
+        <OverlayCSS player={winner} gameover={true} onClick={this.handleReset}>
+          {" "}
+          {`${gameWinner} won! Click to Replay`}{" "}
+        </OverlayCSS>
+      );
+      //checks squares states to see if all the default null state values are gone
+    } else if (!this.state.squares.includes(null)) {
+      return (
+        <OverlayCSS gameover={true} onClick={this.handleReset}>
+          {" "}
+          Draw! Click to Replay{" "}
+        </OverlayCSS>
+      );
+    }
+  };
 
   handleClick = (i) => {
     let squares = [...this.state.squares];
     // Adds player choice as soon as clicked
-    squares[i] = 'O';
+    squares[i] = "O";
     // Sets current state of myTurn to false not disabling square clicks until AI chooses;
-    this.setState(currentState => {
-      return {squares, myTurn: !currentState.myTurn}
+    this.setState((currentState) => {
+      return { squares, myTurn: !currentState.myTurn };
     });
     // Calls setTimeout on the AI logic function and set state to add 'realistic' A.I delay
     setTimeout(() => {
       const best = maximize(squares);
       // Sets AI square to X then changes state.myTurn back to true to allow player turn
-      squares[best[1]] = 'X';
-      this.setState(currentState => {
-          return {squares, myTurn: !currentState.myTurn,}
-        }
-      )
-    },
-    500);
-
-  }
+      squares[best[1]] = "X";
+      this.setState((currentState) => {
+        return { squares, myTurn: !currentState.myTurn };
+      });
+    }, 500);
+  };
   // Function that resets the board by resetting the state to defualt values
   handleReset = () => {
     /* Small delay on reset function for bug that allows 'AI'
@@ -78,31 +106,33 @@ export default class Board extends Component {
        reset button immediately after your own choice */
 
     setTimeout(() => {
-      this.setState({squares: Array(9).fill(null), myTurn: true});
+      this.setState({ squares: Array(9).fill(null), myTurn: true });
     }, 300);
   };
 
   // Reset Button for the handleReset callback
   resetButton = () => {
     const winner = calculateWinner(this.state.squares);
-    // Hides the reset button, with css from styles.js, when the games over 
+    // Hides the reset button, with css from styles.js, when the games over
     if (winner || !this.state.squares.includes(null)) {
-    return <ResetButton gameover={false}>RESET</ResetButton>;
-    }else{
-      return <ResetButton gameover={true} onClick={() => this.handleReset()} >RESET</ResetButton>;
+      return <ResetButton gameover={false}>RESET</ResetButton>;
+    } else {
+      return (
+        <ResetButton gameover={true} onClick={() => this.handleReset()}>
+          RESET
+        </ResetButton>
+      );
     }
   };
   // Renders and returns Board Component
   render() {
-    let status = 'You Go First!';
+    let status = "You Go First!";
     return (
-    <BoardWrap>
+      <BoardWrap>
         <GameTitle>React Tac Toe</GameTitle>
         <Status>{status}</Status>
         {this.renderOverlay()}
-        <Reset>
-          {this.resetButton()}
-        </Reset>
+        <Reset>{this.resetButton()}</Reset>
         <BoardRow>
           {this.renderSquare(0)}
           {this.renderSquare(1)}
@@ -118,8 +148,7 @@ export default class Board extends Component {
           {this.renderSquare(7)}
           {this.renderSquare(8)}
         </BoardRow>
-    </BoardWrap>);
+      </BoardWrap>
+    );
   }
 }
-
-

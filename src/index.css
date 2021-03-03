@@ -1,5 +1,7 @@
-html, body {
+html {
   margin: 0;
-  clear: both;
+}
+body {
+  margin: 0;
   height: 100%;
 }
