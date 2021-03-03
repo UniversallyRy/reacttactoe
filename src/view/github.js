@@ -1,13 +1,9 @@
 import React from "react";
 import githubLogo from "./github.png";
 
-const divStyle = {
-  marginLeft: "auto",
-};
-
 const github = () => {
   return (
-    <div className="container" style={divStyle}>
+    <div className="container" style={{ marginLeft: "auto" }}>
       <a href="https://github.com/UniversallyRy/reacttactoe">
         <img src={githubLogo} style={{ color: "purple" }} alt="GitHub" />
       </a>
