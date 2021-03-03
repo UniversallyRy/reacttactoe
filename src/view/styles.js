@@ -27,8 +27,7 @@ const AppWrapper = styled.div`
 `;
 
 const BoardWrap = styled.div`
-  margin-top: 50px;
-  margin-bottom: 10px;
+  margin-top: 10px;
   -webkit-user-select: none; /* Safari 3.1+ */
   -moz-user-select: none; /* Firefox 2+ */
   -ms-user-select: none; /* IE 10+ */
