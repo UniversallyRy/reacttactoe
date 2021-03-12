@@ -11,8 +11,8 @@ import {
 } from "../view/styles.js";
 import { maximize, calculateWinner } from "./GameAI";
 
-// EVERYTHING THAT APPEARS IN OR AROUND BOARD
 const Board = () => {
+  let status = "You Go First!";
   const [state, setstate] = useState({
     squares: new Array(9).fill(null),
     myTurn: true,
@@ -20,13 +20,12 @@ const Board = () => {
     aiScore: 0,
   });
 
-  // Renders the square and inserts the values(o, x's) and adds event listeners
+  // square Component with event listeners
   const renderSquare = (i) => {
     let winner = calculateWinner(state.squares);
     let squares = [...state.squares];
 
     if (squares[i] === "O") {
-      // Returns a new square with player atr and 'O' text(value) when clicked
       return (
         <Square disabled={true} player={"player"} value={state.squares[i]} />
       );
@@ -48,6 +47,7 @@ const Board = () => {
   const renderOverlay = () => {
     let winner = calculateWinner(state.squares);
 
+    // Future score counter
     // let theWinner = (winner === 'X') ? setstate(currentScore => {
     //   return {aiScore: currentScore.aiScore++}
     // }) : 'You';
@@ -74,34 +74,30 @@ const Board = () => {
 
   const handleClick = (i) => {
     let squares = [...state.squares];
-    // Adds player choice as soon as clicked
     squares[i] = "O";
     // Sets current state of myTurn to false not disabling square clicks until AI chooses;
     setstate((currentState) => {
       return { squares, myTurn: !currentState.myTurn };
     });
-    // Calls setTimeout on the AI logic function and set state to add 'realistic' A.I delay
+    // 'realistic' A.I delay
     setTimeout(() => {
       let best = maximize(squares);
-      // Sets AI square to X then changes state.myTurn back to true to allow player turn
       squares[best[1]] = "X";
       setstate((currentState) => {
         return { squares, myTurn: !currentState.myTurn };
       });
     }, 500);
   };
-  // Function that resets the board by resetting the state to defualt values
+
   const handleReset = () => {
     /* Small delay on reset function for bug that allows 'AI'
        to render a chosen square if you click the  
        reset button immediately after your own choice */
-
     setTimeout(() => {
       setstate({ squares: Array(9).fill(null), myTurn: true });
     }, 300);
   };
 
-  // Reset Button for the handleReset callback
   const resetButton = () => {
     let winner = calculateWinner(state.squares);
     // Hides the reset button, with css from styles.js, when the games over
@@ -115,8 +111,7 @@ const Board = () => {
       );
     }
   };
-  // Renders and returns Board Component
-  let status = "You Go First!";
+
   return (
     <BoardWrap>
       <GameTitle>React Tac Toe</GameTitle>

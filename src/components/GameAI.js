@@ -1,11 +1,5 @@
-// Functions used to generate game mechanics
-// such as logic to calculate the AI's best potential move
-// and calculating the squares(array) positions for a winning game
+// API to alculate the AI's best potential move
 
-// (board) param is simply this.state.squares in Board.js
-
-// checks state.squares[i] for "O" or "X" values and if none
-// pushes that squares[i] index to result array
 const getAvailableSpots = (board) => {
   let result = [];
   for (let i = 0; i < board.length; i++) {
@@ -16,8 +10,7 @@ const getAvailableSpots = (board) => {
   return result;
 };
 
-// logic to find if any of these 8 combos contains either
-// all "X" or "O",
+// logic to find if any of these 8 combos contains either all "X" or "O",
 const calculateWinner = (board) => {
   const winningRows = [
     [0, 1, 2],
@@ -41,7 +34,7 @@ const calculateWinner = (board) => {
   return false;
 };
 
-// Logic used to calculate the best move for the AI
+// Calculates AI best move
 const minimize = (board) => {
   const moves = getAvailableSpots(board);
   if (calculateWinner(board)) {
