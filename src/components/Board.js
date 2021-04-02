@@ -46,12 +46,10 @@ const Board = () => {
 
   const renderOverlay = () => {
     let winner = calculateWinner(state.squares);
-
     // Future score counter
     // let theWinner = (winner === 'X') ? setstate(currentScore => {
     //   return {aiScore: currentScore.aiScore++}
     // }) : 'You';
-
     if (winner) {
       let gameWinner = winner === "X" ? "CPU" : "You";
 

@@ -37,6 +37,9 @@ const calculateWinner = (board) => {
 // Calculates AI best move
 const minimize = (board) => {
   const moves = getAvailableSpots(board);
+  let bestMove;
+  let bestValue = 100000;
+
   if (calculateWinner(board)) {
     return 1;
   }
@@ -44,8 +47,6 @@ const minimize = (board) => {
     return 0;
   }
 
-  let bestMove;
-  let bestValue = 100000;
   for (let i = 0; i < moves.length; i++) {
     board[moves[i]] = "O";
     let hValue = maximize(board);
@@ -58,12 +59,13 @@ const minimize = (board) => {
     }
     board[moves[i]] = null;
   }
-
   return [bestValue, bestMove];
 };
 
 const maximize = (board) => {
   const moves = getAvailableSpots(board);
+  let bestMove;
+  let bestValue = -100000;
 
   if (calculateWinner(board)) {
     return -1;
@@ -72,9 +74,6 @@ const maximize = (board) => {
   if (!moves.length) {
     return 0;
   }
-
-  let bestMove;
-  let bestValue = -100000;
 
   for (let i = 0; i < moves.length; i++) {
     board[moves[i]] = "X";
@@ -88,7 +87,6 @@ const maximize = (board) => {
     }
     board[moves[i]] = null;
   }
-
   return [bestValue, bestMove];
 };
 
