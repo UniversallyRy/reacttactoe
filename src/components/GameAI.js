@@ -24,8 +24,8 @@ const calculateWinner = (board) => {
   ];
   // Loops through winningRows array, and checks if squares at those
   // indexes all have the same value, either "X" or "O"
-  for (let i = 0; i < winningRows.length; i++) {
-    const [a, b, c] = winningRows[i];
+  for (let winningRow of winningRows) {
+    const [a, b, c] = winningRow;
     if (board[a] && board[a] === board[b] && board[a] === board[c]) {
       // If they have same value return true and that value
       return true && board[a];
@@ -47,17 +47,17 @@ const minimize = (board) => {
     return 0;
   }
 
-  for (let i = 0; i < moves.length; i++) {
-    board[moves[i]] = "O";
+  for (let move of moves) {
+    board[move] = "O";
     let hValue = maximize(board);
     if (Array.isArray(hValue)) {
       hValue = hValue[0];
     }
     if (hValue < bestValue) {
-      bestMove = moves[i];
+      bestMove = move;
       bestValue = hValue;
     }
-    board[moves[i]] = null;
+    board[move] = null;
   }
   return [bestValue, bestMove];
 };
@@ -75,17 +75,17 @@ const maximize = (board) => {
     return 0;
   }
 
-  for (let i = 0; i < moves.length; i++) {
-    board[moves[i]] = "X";
+  for (let move of moves) {
+    board[move] = "X";
     let hValue = minimize(board);
     if (Array.isArray(hValue)) {
       hValue = hValue[0];
     }
     if (hValue > bestValue) {
-      bestMove = moves[i];
+      bestMove = move;
       bestValue = hValue;
     }
-    board[moves[i]] = null;
+    board[move] = null;
   }
   return [bestValue, bestMove];
 };
