@@ -1,7 +1,13 @@
-import React from "react";
+import React, {MouseEventHandler} from "react";
 import { Psquares } from "./styles.js";
 
-const Square = ({ disabled, onClick, player }) => {
+type Props = {
+  disabled: boolean,
+  onClick: MouseEventHandler,
+  player: string
+}
+
+const Square = ({ disabled, onClick, player }: Props) => {
   return (
     <Psquares
       style={{
