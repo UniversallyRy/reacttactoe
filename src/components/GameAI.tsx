@@ -1,6 +1,6 @@
 // API to alculate the AI's best potential move
 
-const getAvailableSpots = (board) => {
+const getAvailableSpots = (board:any) => {
   let result = [];
   for (let i = 0; i < board.length; i++) {
     if (!board[i]) {
@@ -11,7 +11,7 @@ const getAvailableSpots = (board) => {
 };
 
 // logic to find if any of these 8 combos contains either all "X" or "O",
-const calculateWinner = (board) => {
+const calculateWinner = (board:any) => {
   const winningRows = [
     [0, 1, 2],
     [3, 4, 5],
@@ -35,7 +35,7 @@ const calculateWinner = (board) => {
 };
 
 // Calculates AI best move
-const minimize = (board) => {
+const minimize = (board: any[]) => {
   const moves = getAvailableSpots(board);
   let bestMove;
   let bestValue = 100000;
@@ -49,7 +49,7 @@ const minimize = (board) => {
 
   for (let move of moves) {
     board[move] = "O";
-    let hValue = maximize(board);
+    let hValue:any= maximize(board) || 0;
     if (Array.isArray(hValue)) {
       hValue = hValue[0];
     }
@@ -62,7 +62,7 @@ const minimize = (board) => {
   return [bestValue, bestMove];
 };
 
-const maximize = (board) => {
+const maximize = (board: any[]) => {
   const moves = getAvailableSpots(board);
   let bestMove;
   let bestValue = -100000;
@@ -77,7 +77,7 @@ const maximize = (board) => {
 
   for (let move of moves) {
     board[move] = "X";
-    let hValue = minimize(board);
+    let hValue:any = minimize(board);
     if (Array.isArray(hValue)) {
       hValue = hValue[0];
     }

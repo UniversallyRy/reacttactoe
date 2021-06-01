@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Square from "../view/square.jsx";
+import Square from "../view/square";
 import {
   BoardWrap,
   GameTitle,
@@ -8,25 +8,19 @@ import {
   ResetButton,
   BoardRow,
   OverlayCSS,
-} from "../view/styles.jsx";
+} from "../view/styles";
 import { maximize, calculateWinner } from "./GameAI";
 
-type Props = {
-  disabled: boolean,
-  i: number
-}
 
 const Board = () => {
   let status = "You Go First!";
   const [state, setstate] = useState({
     squares: new Array(9).fill(null),
     myTurn: true,
-    userScore: 0,
-    aiScore: 0,
   });
 
   // square Component with event listeners
-  const renderSquare = (i) => {
+  const renderSquare = (i: number) => {
     let winner = calculateWinner(state.squares);
     let squares = [...state.squares];
 
@@ -41,6 +35,7 @@ const Board = () => {
       // Default rendered squares when ...squares[i] is empty(nulled)
       return (
         <Square
+          player={''}
           disabled={winner ? true : !state.myTurn}
           value={state.squares[i]}
           onClick={() => handleClick(i)}
@@ -67,7 +62,7 @@ const Board = () => {
       //checks squares states to see if all the default null state values are gone
     } else if (!state.squares.includes(null)) {
       return (
-        <OverlayCSS gameover={true} onClick={handleReset}>
+        <OverlayCSS player={''} gameover={true} onClick={handleReset}>
           {" "}
           Draw! Click to Replay{" "}
         </OverlayCSS>
@@ -75,16 +70,16 @@ const Board = () => {
     }
   };
 
-  const handleClick = (i) => {
-    let squares = [...state.squares];
+  const handleClick = (i:number) => {
+    let squares:any[] = [...state.squares];
     squares[i] = "O";
     // Sets current state of myTurn to false not disabling square clicks until AI chooses;
     setstate((currentState) => {
-      return { squares, myTurn: !currentState.myTurn };
+      return { squares, myTurn: !currentState.myTurn, };
     });
     // 'realistic' A.I delay
     setTimeout(() => {
-      let best = maximize(squares);
+      let best:any = maximize(squares);
       squares[best[1]] = "X";
       setstate((currentState) => {
         return { squares, myTurn: !currentState.myTurn };
