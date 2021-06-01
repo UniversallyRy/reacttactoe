@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Square from "../view/square.js";
+import Square from "../view/square.jsx";
 import {
   BoardWrap,
   GameTitle,
@@ -8,8 +8,13 @@ import {
   ResetButton,
   BoardRow,
   OverlayCSS,
-} from "../view/styles.js";
+} from "../view/styles.jsx";
 import { maximize, calculateWinner } from "./GameAI";
+
+type Props = {
+  disabled: boolean,
+  i: number
+}
 
 const Board = () => {
   let status = "You Go First!";

@@ -7,6 +7,7 @@ type Props = {
   player: string
 }
 
+
 const Square = ({ disabled, onClick, player }: Props) => {
   return (
     <Psquares
