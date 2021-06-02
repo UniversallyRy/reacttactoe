@@ -6,6 +6,6 @@
 
 ##### Screenshot
 
-![Tic Tac Toe](https://user-images.githubusercontent.com/24601662/109756347-c63b3c80-7bb5-11eb-90c1-ff6ff5b19166.png)
+![Tic Tac Toe](https://i.postimg.cc/tTrv6qfj/reactacttoescreenshot.png)
 
 ##### You can find a demo hosted on Github Pages [Here](https://universallyry.github.io/reacttactoe/).
