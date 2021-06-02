@@ -33,21 +33,27 @@ const BoardWrap = styled.div`
   -ms-user-select: none; /* IE 10+ */
   user-select: none; /* Standard syntax */
 `;
+const BoardBackground = styled.div`
+  background-color: #cbb4d4;
+  border-radius: 15px;
+  padding: 50px 30px 32px;
+  box-shadow: 0 24px 45px -15px rgba(161, 159, 219, 0.41);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  
+`;
 
 const GameTitle = styled.h1`
   background: #a044ff;
   border-radius: -1px;
   border: 0.5px solid #cbb4d4;
   color: #cbb4d4;
-  float: none;
   font-size: 40px;
   font-weight: bold;
   height: 40px;
   line-height: 40px;
-  margin-left: 40px;
-  padding: auto;
   text-align: center;
-  width: 420px;
 `;
 
 const Status = styled.div`
@@ -60,11 +66,9 @@ const Status = styled.div`
   font-size: 14px;
   font-weight: bold;
   line-height: 50px;
-  float: none;
-  height: 50px;
-  margin-left: 160px;
+  height: 40px;
+  margin-left: 190px;
   margin-bottom: 50px;
-  padding: auto;
   text-align: center;
   width: 200px;
 `;
@@ -121,30 +125,30 @@ const Psquares = styled.button<{ player:string }>`
     // Props used to input player square colors when given a value
     (props) =>
       props.player === "player"
-        ? "#cbb4d4"
+        ? "#5F9EA0"
         : props.player === "AI"
         ? "#000046"
-        : "#a044ff"
+        : "#cbb4d4"
   };
   color: ${(props) =>
     props.player === "player"
-      ? "#a044ff"
+      ? "#cbb4d4"
       : props.player === "AI"
       ? "#B2FEFA"
       : "#F00000"};
   border: ${(props) =>
     props.player === "player"
-      ? "1px dashed #cbb4d4"
+      ? "1px dashed #5F9EA0"
       : props.player === "AI"
       ? "1px dashed #000046"
-      : "1px dashed #a044ff"};
+      : "1px dashed #cbb4d4"};
   border-radius: 2px;
   box-shadow: ${(props) =>
     props.player === "player"
-      ? "0 0 0 4px #cbb4d4, 1px 4px 10px 10px rgba(60, 52, 102, 0.9)"
+      ? "0 0 0 4px #5F9EA0, 1px 4px 10px 10px rgba(60, 52, 102, 0.9)"
       : props.player === "AI"
       ? "0 0 0 4px #000046, 4px 2px 12px 8px rgba(10, 10, 0, 0.3)"
-      : "0 0 0 4px #a044ff, 2px 1px 6px 4px rgba(10, 10, 0, 0.5)"};
+      : "0 0 0 4px #cbb4d4, 2px 1px 6px 4px rgba(10, 10, 0, 0.5)"};
   float: left;
   font-family: Fascinate, sans-serif;
   font-size: 50px;
@@ -159,10 +163,10 @@ const Psquares = styled.button<{ player:string }>`
     outline: none;
   }
   &:hover {
-    background: #cbb4d4;
-    border: 1px dashed #cbb4d4;
+    background: #5F9EA0;
+    border: 1px dashed #5F9EA0;
     border-radius: 1px;
-    box-shadow: 0 0 0 4px #cbb4d4, 2px 1px 6px 4px rgba(10, 10, 0, 0.5);
+    box-shadow: 0 0 0 4px #5F9EA0, 2px 1px 6px 4px rgba(10, 10, 0, 0.5);
     opacity: 1;
   }
 `;
@@ -192,27 +196,25 @@ const OverlayCSS = styled.div<{ gameover: boolean, player: string }>`
       : "1px dashed #a044ff"};
   border-radius: 10px;
   box-shadow: 0 0 0 2px #cbb4d4, 2px 1px 2px 3px rgba(10, 10, 0, 0.5);
-  float: none;
-  font-size: 50px;
-  font-weight: bold;
+  width: 400px;
   height: 400px;
-  line-height: 200px;
   margin-left: 60px;
   margin-top: 120px;
   padding: 1px;
   position: absolute;
-  text-align: center;
-  vertical-align: middle;
   visibility: ${
     // Prop to show overlay only when a game is over
     (props) => (props.gameover ? "visible" : "hidden")
   };
-  width: 400px;
-  word-wrap: break-word;
-
   &:hover {
     opacity: 0.5;
   }
+`;
+const OverlayText = styled.p`
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 150px;
+  text-align: center;
 `;
 
 export {
@@ -225,4 +227,6 @@ export {
   BoardRow,
   Psquares,
   OverlayCSS,
+  BoardBackground,
+  OverlayText,
 };

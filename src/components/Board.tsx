@@ -7,13 +7,14 @@ import {
   Reset,
   ResetButton,
   BoardRow,
+  BoardBackground,
   OverlayCSS,
+  OverlayText,
 } from "../view/styles";
 import { maximize, calculateWinner } from "./GameAI";
 
 
 const Board = () => {
-  let status = "You Go First!";
   const [state, setstate] = useState({
     squares: new Array(9).fill(null),
     myTurn: true,
@@ -55,16 +56,23 @@ const Board = () => {
 
       return (
         <OverlayCSS player={winner} gameover={true} onClick={handleReset}>
-          {" "}
-          {`${gameWinner} won! Click to Replay`}{" "}
+          <OverlayText>
+            {`${gameWinner} won!`}
+          </OverlayText>
+          <OverlayText>
+            Click to Replay
+          </OverlayText>
         </OverlayCSS>
       );
       //checks squares states to see if all the default null state values are gone
     } else if (!state.squares.includes(null)) {
       return (
         <OverlayCSS player={''} gameover={true} onClick={handleReset}>
-          {" "}
-          Draw! Click to Replay{" "}
+          <OverlayText>
+            {" "}
+            Draw! {"\n"}
+            Click to Replay
+          </OverlayText>
         </OverlayCSS>
       );
     }
@@ -113,24 +121,26 @@ const Board = () => {
   return (
     <BoardWrap>
       <GameTitle>React Tac Toe</GameTitle>
-      <Status>{status}</Status>
-      {renderOverlay()}
-      <Reset>{resetButton()}</Reset>
-      <BoardRow>
-        {renderSquare(0)}
-        {renderSquare(1)}
-        {renderSquare(2)}
-      </BoardRow>
-      <BoardRow>
-        {renderSquare(3)}
-        {renderSquare(4)}
-        {renderSquare(5)}
-      </BoardRow>
-      <BoardRow>
-        {renderSquare(6)}
-        {renderSquare(7)}
-        {renderSquare(8)}
-      </BoardRow>
+      <Status>{`You Go First`}</Status>
+      <BoardBackground>
+        {renderOverlay()}
+        <Reset>{resetButton()}</Reset>
+        <BoardRow>
+          {renderSquare(0)}
+          {renderSquare(1)}
+          {renderSquare(2)}
+        </BoardRow>
+        <BoardRow>
+          {renderSquare(3)}
+          {renderSquare(4)}
+          {renderSquare(5)}
+        </BoardRow>
+        <BoardRow>
+          {renderSquare(6)}
+          {renderSquare(7)}
+          {renderSquare(8)}
+        </BoardRow>
+      </BoardBackground>
     </BoardWrap>
   );
 };
