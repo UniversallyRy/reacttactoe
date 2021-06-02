@@ -60,7 +60,7 @@ const Board = () => {
             {`${gameWinner} won!`}
           </OverlayText>
           <OverlayText>
-            Click to Replay
+            Click To Replay
           </OverlayText>
         </OverlayCSS>
       );
@@ -69,9 +69,10 @@ const Board = () => {
       return (
         <OverlayCSS player={''} gameover={true} onClick={handleReset}>
           <OverlayText>
-            {" "}
-            Draw! {"\n"}
-            Click to Replay
+            Draw!
+          </OverlayText>
+          <OverlayText>
+            Click To Replay
           </OverlayText>
         </OverlayCSS>
       );
