@@ -57,7 +57,7 @@ const Board = () => {
       return (
         <OverlayCSS player={winner} gameover={true} onClick={handleReset}>
           <OverlayText>
-            {`${gameWinner} won!`}
+            <span style={{fontSize: 50, color:'#a044ff'}}>{`${gameWinner}`}</span> won!
           </OverlayText>
           <OverlayText>
             Click To Replay
@@ -69,7 +69,7 @@ const Board = () => {
       return (
         <OverlayCSS player={''} gameover={true} onClick={handleReset}>
           <OverlayText>
-            Draw!
+          <span style={{fontSize: 50}}>Draw!</span>
           </OverlayText>
           <OverlayText>
             Click To Replay

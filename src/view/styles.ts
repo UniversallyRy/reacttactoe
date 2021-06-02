@@ -211,6 +211,7 @@ const OverlayCSS = styled.div<{ gameover: boolean, player: string }>`
   }
 `;
 const OverlayText = styled.p`
+  color:#cbb4d4;
   font-weight: bold;
   font-size: 30px;
   line-height: 150px;
