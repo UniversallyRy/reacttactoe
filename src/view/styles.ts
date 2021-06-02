@@ -59,10 +59,10 @@ const GameTitle = styled.h1`
 const Status = styled.div`
   animation: ${hideStatus /* fades out status div after 5 seconds*/} 5s ease-in
     0.2s forwards;
-  background: #cbb4d4;
+  background: #5F9EA0;
   border-radius: 2px;
-  box-shadow: 0 0 0 2px #cbb4d4, 2px 1px 2px 3px rgba(10, 10, 0, 0.5);
-  color: #a044ff;
+  box-shadow: 0 0 0 2px #5F9EA0, 2px 1px 2px 3px rgba(10, 10, 0, 0.5);
+  color: #cbb4d4;
   font-size: 14px;
   font-weight: bold;
   line-height: 50px;
