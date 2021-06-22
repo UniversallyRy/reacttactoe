@@ -27,7 +27,7 @@ const AppWrapper = styled.div`
 `;
 
 const BoardWrap = styled.div`
-  margin-top: 10px;
+  margin-bottom: 10px;
   -webkit-user-select: none; /* Safari 3.1+ */
   -moz-user-select: none; /* Firefox 2+ */
   -ms-user-select: none; /* IE 10+ */
@@ -46,7 +46,7 @@ const BoardBackground = styled.div`
 
 const GameTitle = styled.h1`
   background: #a044ff;
-  border-radius: -1px;
+  border-radius: 5px;
   border: 0.5px solid #cbb4d4;
   color: #cbb4d4;
   font-size: 40px;
@@ -68,7 +68,7 @@ const Status = styled.div`
   line-height: 50px;
   height: 40px;
   margin-left: 190px;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
   text-align: center;
   width: 200px;
 `;
@@ -88,7 +88,7 @@ const ResetButton = styled.button<{ gameover: boolean }>`
   height: 40px;
   line-height: 20px;
   margin-left: 160px;
-  margin-top: 10px;
+  margin-top: 5px;
   opacity: 1;
   padding: 1px;
   text-align: center;
