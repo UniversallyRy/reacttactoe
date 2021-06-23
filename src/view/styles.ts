@@ -170,7 +170,7 @@ const Psquares = styled.button<{ player:string }>`
   border-radius: 2px;
   box-shadow: ${(props) =>
     props.player === "player"
-      ? "0 0 0 4px #5F9EA0, 1px 4px 10px 10px rgba(60, 52, 102, 0.9)"
+      ? "0 0 0 4px #5F9EA0, 0.5px 1.5px 3px 3px rgba(60, 52, 102, 0.9)"
       : props.player === "AI"
       ? "0 0 0 4px #000046, 4px 2px 12px 8px rgba(10, 10, 0, 0.3)"
       : "0 0 0 4px #cbb4d4, 2px 1px 6px 4px rgba(10, 10, 0, 0.5)"};

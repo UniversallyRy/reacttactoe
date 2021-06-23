@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Square from "../view/square";
 import {
   BoardWrap,
@@ -39,6 +39,7 @@ const Board = () => {
           player={''}
           disabled={winner ? true : !state.myTurn}
           value={state.squares[i]}
+          onTouchEnd={() => handleReset()}
           onClick={() => handleClick(i)}
         />
       );
@@ -55,7 +56,12 @@ const Board = () => {
       let gameWinner = winner === "X" ? "CPU" : "You";
 
       return (
-        <OverlayCSS player={winner} gameover={true} onClick={handleReset}>
+        <OverlayCSS 
+          player={winner} 
+          gameover={true} 
+          onTouchEnd={handleReset} 
+          onClick={handleReset}
+        >
           <OverlayText>
             <span style={{fontSize: 50, color:'#a044ff'}}>{`${gameWinner}`}</span> won!
           </OverlayText>
@@ -112,7 +118,11 @@ const Board = () => {
       return <ResetButton gameover={false}>RESET</ResetButton>;
     } else {
       return (
-        <ResetButton gameover={true} onClick={() => handleReset()}>
+        <ResetButton 
+          gameover={true} 
+          onClick={() => handleReset()}
+          onTouchEnd={() => handleReset()} 
+        >
           RESET
         </ResetButton>
       );
