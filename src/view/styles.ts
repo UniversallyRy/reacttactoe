@@ -23,7 +23,7 @@ const BoardWrap = styled.div`
   max-width: 100%;
   align-items: center;
   display: flex;
-  margin: 1em;
+  margin-top: 3em;
   flex-wrap: wrap;
   flex-direction: column;
   font-family: Fascinate, sans-serif;
@@ -31,6 +31,16 @@ const BoardWrap = styled.div`
   -moz-user-select: none; /* Firefox 2+ */
   -ms-user-select: none; /* IE 10+ */
   user-select: none; /* Standard syntax */
+
+  @media (min-width: 768px) {
+  margin-top: 3em;
+    
+  }
+
+  @media (min-width: 1024px) {
+  margin-top: 1em;
+  }
+  
 `;
 
 const BoardBackground = styled.div`

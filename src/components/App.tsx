@@ -6,8 +6,8 @@ import Github from "../view/github";
 const App = () => {
   return (
     <>
-      <Global/>
       <Github />
+      <Global/>
       <Board />
     </>
   );
