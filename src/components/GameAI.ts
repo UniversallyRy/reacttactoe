@@ -1,5 +1,4 @@
-// API to alculate the AI's best potential move
-
+// Calculate the AI's best potential move
 const getAvailableSpots = (board:any) => {
   let result: number[] = [];
   for (let i = 0; i < board.length; i++) {

@@ -1,4 +1,4 @@
-// styled-components used instead of plain css for personal perference of keeping everything JS
+// Board Stylings
 import styled, { keyframes } from "styled-components";
 import adaptive from '../util/adaptive';
 

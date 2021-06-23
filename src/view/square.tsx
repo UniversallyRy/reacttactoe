@@ -15,12 +15,11 @@ const Square = ({ disabled, onTouchEnd, onClick, player } :Props) => {
     <Psquares
       children
       style={{
-        // Pointer event to disable button clicks when its not user's turn
         pointerEvents: disabled ? "none" : "auto",
       }}
       onClick={onClick}
       player={player}
-      onTouchEnd={onTouchEnd}
+      onTouchMove={onTouchEnd}
     ></Psquares>
   );
 };

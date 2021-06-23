@@ -39,7 +39,7 @@ const Board = () => {
           player={''}
           disabled={winner ? true : !state.myTurn}
           value={state.squares[i]}
-          onTouchEnd={() => handleReset()}
+          onTouchEnd={() => handleClick(i)}
           onClick={() => handleClick(i)}
         />
       );
@@ -59,11 +59,15 @@ const Board = () => {
         <OverlayCSS 
           player={winner} 
           gameover={true} 
-          onTouchEnd={handleReset} 
+          onTouchMove={handleReset} 
           onClick={handleReset}
         >
           <OverlayText>
-            <span style={{fontSize: 50, color:'#a044ff'}}>{`${gameWinner}`}</span> won!
+            <span 
+              style={{fontSize: 50, color:'#a044ff'}}
+            >
+                {`${gameWinner}`}
+            </span> won!
           </OverlayText>
           <OverlayText>
             Click To Replay
@@ -73,7 +77,11 @@ const Board = () => {
       //checks squares states to see if all the default null state values are gone
     } else if (!state.squares.includes(null)) {
       return (
-        <OverlayCSS player={''} gameover={true} onClick={handleReset}>
+        <OverlayCSS 
+          player={''} 
+          gameover={true} 
+          onClick={handleReset}
+        >
           <OverlayText>
           <span style={{fontSize: 50}}>Draw!</span>
           </OverlayText>
@@ -121,7 +129,7 @@ const Board = () => {
         <ResetButton 
           gameover={true} 
           onClick={() => handleReset()}
-          onTouchEnd={() => handleReset()} 
+          onTouchMove={() => handleReset()} 
         >
           RESET
         </ResetButton>

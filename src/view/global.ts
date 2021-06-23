@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 import adaptive from "../util/adaptive";
-
+//HTML css 
 export const Global = createGlobalStyle`
   * {
       margin: 0;
@@ -9,7 +9,6 @@ export const Global = createGlobalStyle`
     }
     :root {
       font-size: ${adaptive(24)};
-
 
       @media (min-width: 768px) {
         font-size: ${adaptive(18)};
