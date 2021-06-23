@@ -1,9 +1,8 @@
-import React from "react";
 import githubLogo from "./github.png";
 
 const github = () => {
   return (
-    <div className="container" style={{ marginLeft: "auto" }}>
+    <div className="container" style={{ float: "right", marginRight: 5 }}>
       <a href="https://github.com/UniversallyRy/reacttactoe">
         <img src={githubLogo} style={{ color: "purple" }} alt="GitHub" />
       </a>
