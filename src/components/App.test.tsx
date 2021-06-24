@@ -1,4 +1,6 @@
+import React from 'react';
 import ReactDOM from "react-dom";
+// import { render, fireEvent, waitForElementToBeRemoved} from '@testing-library/react'
 import App from "./App";
 
 it("renders without crashing", () => {
@@ -6,3 +8,8 @@ it("renders without crashing", () => {
   ReactDOM.render(<App />, div);
 });
   
+describe("App />", () => {
+  test('Should render the full App', async() => {
+    
+  })
+});
