@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Square from "../view/square";
+import Square from "./Square";
 import {
   BoardWrap,
   GameTitle,
@@ -11,7 +11,7 @@ import {
   OverlayCSS,
   OverlayText,
 } from "../view/styles";
-import { maximize, calculateWinner } from "./GameAI";
+import { maximize, calculateWinner } from "../util/gameAI";
 
 
 const Board = () => {

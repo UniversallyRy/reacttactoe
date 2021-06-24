@@ -1,8 +1,10 @@
-import githubLogo from "./github.png";
+import githubLogo from "../view/github.png";
 
-const github = () => {
+
+
+const Github = () => {
   return (
-    <div className="container" style={{  margin: 5 }}>
+    <div className="githubLogo" style={{  margin: 5 }}>
       <a href="https://github.com/UniversallyRy/reacttactoe">
         <img src={githubLogo} style={{ color: "purple" }} alt="GitHub" />
       </a>
@@ -10,4 +12,4 @@ const github = () => {
   );
 };
 
-export default github;
+export default Github;

@@ -1,5 +1,5 @@
 import { MouseEventHandler } from "react";
-import { Psquares } from "./styles";
+import { Psquares } from "../view/styles";
 
 type Props = {
   disabled?: boolean,
