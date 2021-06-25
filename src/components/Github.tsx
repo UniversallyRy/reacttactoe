@@ -1,6 +1,9 @@
 import githubLogo from "../view/github.png";
 
-const Github = ():JSX.Element => {
+export interface GithubProps {
+}  
+
+const Github: React.FunctionComponent<GithubProps> = ():JSX.Element => {
   return (
     <div className="githubLogo" style={{  margin: 5 }}>
       <a href="https://github.com/UniversallyRy/reacttactoe">

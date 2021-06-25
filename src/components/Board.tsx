@@ -1,110 +1,41 @@
 import { useState } from "react";
-import Square from "./Square";
+import Square from "./Squares";
+import Overlay from "./Overlay";
+import ResetButton from "./ResetButton";
 import {
   BoardWrap,
   GameTitle,
   Status,
   Reset,
-  ResetButton,
   BoardRow,
   BoardBackground,
-  OverlayCSS,
-  OverlayText,
 } from "../view/styles";
-import { maximize, calculateWinner } from "../util/gameAI";
+import { maximize } from "../util/gameAI";
 
+export interface BoardProps {
+}  
 
-const Board = () => {
-  const [state, setstate] = useState({
+const Board: React.FunctionComponent<BoardProps> = ():JSX.Element => {
+  const [state, setState] = useState({
     squares: new Array(9).fill(null),
     myTurn: true,
   });
 
-  // square Component with event listeners
-  const renderSquare = (i: number) => {
-    let winner = calculateWinner(state.squares);
-    let squares = [...state.squares];
+  const handleClick:React.MouseEventHandler<
+    HTMLButtonElement | HTMLAnchorElement
+    > = (i:any) => {
 
-    if (squares[i] === "O") {
-      return (
-        <Square disabled={true} player={"player"} value={state.squares[i]} />
-      );
-      // Does the same for AI
-    } else if (squares[i] === "X") {
-      return <Square disabled={true} player={"AI"} value={state.squares[i]} />;
-    } else {
-      // Default rendered squares when ...squares[i] is empty(nulled)
-      return (
-        <Square
-          player={''}
-          disabled={winner ? true : !state.myTurn}
-          value={state.squares[i]}
-          onTouchEnd={() => handleClick(i)}
-          onClick={() => handleClick(i)}
-        />
-      );
-    }
-  };
-
-  const renderOverlay = () => {
-    let winner = calculateWinner(state.squares);
-    // Future score counter
-    // let theWinner = (winner === 'X') ? setstate(currentScore => {
-    //   return {aiScore: currentScore.aiScore++}
-    // }) : 'You';
-    if (winner) {
-      let gameWinner = winner === "X" ? "CPU" : "You";
-
-      return (
-        <OverlayCSS 
-          player={winner} 
-          gameover={true} 
-          onTouchMove={handleReset} 
-          onClick={handleReset}
-        >
-          <OverlayText>
-            <span 
-              style={{fontSize: 50, color:'#a044ff'}}
-            >
-                {`${gameWinner}`}
-            </span> won!
-          </OverlayText>
-          <OverlayText>
-            Click To Replay
-          </OverlayText>
-        </OverlayCSS>
-      );
-      //checks squares states to see if all the default null state values are gone
-    } else if (!state.squares.includes(null)) {
-      return (
-        <OverlayCSS 
-          player={''} 
-          gameover={true} 
-          onClick={handleReset}
-        >
-          <OverlayText>
-          <span style={{fontSize: 50}}>Draw!</span>
-          </OverlayText>
-          <OverlayText>
-            Click To Replay
-          </OverlayText>
-        </OverlayCSS>
-      );
-    }
-  };
-
-  const handleClick = (i:number) => {
     let squares:any[] = [...state.squares];
     squares[i] = "O";
     // Sets current state of myTurn to false not disabling square clicks until AI chooses;
-    setstate((currentState) => {
+    setState((currentState) => {
       return { squares, myTurn: !currentState.myTurn, };
     });
     // 'realistic' A.I delay
     setTimeout(() => {
       let best:any = maximize(squares);
       squares[best[1]] = "X";
-      setstate((currentState) => {
+      setState((currentState) => {
         return { squares, myTurn: !currentState.myTurn };
       });
     }, 500);
@@ -115,52 +46,37 @@ const Board = () => {
        to render a chosen square if you click the  
        reset button immediately after your own choice */
     setTimeout(() => {
-      setstate({ squares: Array(9).fill(null), myTurn: true });
+      setState({ squares: Array(9).fill(null), myTurn: true });
     }, 300);
-  };
-
-  const resetButton = () => {
-    let winner = calculateWinner(state.squares);
-    // Hides the reset button, with css from styles.js, when the games over
-    if (winner || !state.squares.includes(null)) {
-      return <ResetButton gameover={false}>RESET</ResetButton>;
-    } else {
-      return (
-        <ResetButton 
-          gameover={true} 
-          onClick={() => handleReset()}
-          onTouchMove={() => handleReset()} 
-        >
-          RESET
-        </ResetButton>
-      );
-    }
   };
 
   return (
     <BoardWrap>
       <GameTitle>React Tac Toe</GameTitle>
-      <Status>{`You Go First`}</Status>
+      <Status>{'You Go First'}</Status>
       <BoardBackground>
-        {renderOverlay()}
-        <Reset>{resetButton()}</Reset>
+        <Overlay state={state} handleReset={handleReset}/>
+        <Reset>
+          <ResetButton state={state} handleReset={handleReset}/>
+        </Reset>
         <BoardRow>
-          {renderSquare(0)}
-          {renderSquare(1)}
-          {renderSquare(2)}
+          <Square i={0} state={state} handleClick={handleClick}/>
+          <Square i={1} state={state} handleClick={handleClick}/>
+          <Square i={2} state={state} handleClick={handleClick}/>
         </BoardRow>
         <BoardRow>
-          {renderSquare(3)}
-          {renderSquare(4)}
-          {renderSquare(5)}
+          <Square i={3} state={state} handleClick={handleClick}/>
+          <Square i={4} state={state} handleClick={handleClick}/>
+          <Square i={5} state={state} handleClick={handleClick}/>
         </BoardRow>
         <BoardRow>
-          {renderSquare(6)}
-          {renderSquare(7)}
-          {renderSquare(8)}
+          <Square i={6} state={state} handleClick={handleClick}/>
+          <Square i={7} state={state} handleClick={handleClick}/>
+          <Square i={8} state={state} handleClick={handleClick}/>
         </BoardRow>
       </BoardBackground>
     </BoardWrap>
   );
 };
+
 export default Board;
