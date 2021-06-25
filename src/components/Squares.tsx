@@ -2,7 +2,10 @@ import { SquareCSS } from "../view/styles";
 import { calculateWinner } from "../util/gameAI";
 
 export interface SquaresProps {
-  state: any;
+  state: {
+    squares: any[];
+    myTurn: boolean;
+  };
   handleClick: any;
   i: number; 
 }
@@ -10,7 +13,7 @@ export interface SquaresProps {
 export interface SquareCSSProps {
   player: string;
   value: boolean;
-  onClick?: (() => void);
+  onClick?: (() => Event);
   onTouchEnd?: (() => void);
   disabled: boolean;
 }

@@ -16,6 +16,7 @@ export interface BoardProps {
 }  
 
 const Board: React.FunctionComponent<BoardProps> = ():JSX.Element => {
+
   const [state, setState] = useState({
     squares: new Array(9).fill(null),
     myTurn: true,
@@ -23,7 +24,7 @@ const Board: React.FunctionComponent<BoardProps> = ():JSX.Element => {
 
   const handleClick:React.MouseEventHandler<
     HTMLButtonElement | HTMLAnchorElement
-    > = (i:any) => {
+  > = (i:any) => {
 
     let squares:any[] = [...state.squares];
     squares[i] = "O";
@@ -31,9 +32,9 @@ const Board: React.FunctionComponent<BoardProps> = ():JSX.Element => {
     setState((currentState) => {
       return { squares, myTurn: !currentState.myTurn, };
     });
-    // 'realistic' A.I delay
+    // setTimeout for AI's choice delay
     setTimeout(() => {
-      let best:any = maximize(squares);
+      let best: any = maximize(squares);
       squares[best[1]] = "X";
       setState((currentState) => {
         return { squares, myTurn: !currentState.myTurn };
@@ -42,9 +43,7 @@ const Board: React.FunctionComponent<BoardProps> = ():JSX.Element => {
   };
 
   const handleReset = () => {
-    /* Small delay on reset function for bug that allows 'AI'
-       to render a chosen square if you click the  
-       reset button immediately after your own choice */
+    // Delay on reset to let above setTimout finish first
     setTimeout(() => {
       setState({ squares: Array(9).fill(null), myTurn: true });
     }, 300);
