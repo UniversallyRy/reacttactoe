@@ -1,4 +1,4 @@
-import { RButton } from "../view/styles";
+import { Button } from "../view/styles";
 import { calculateWinner } from "../util/gameAI";
 
 export interface ButtonProps {
@@ -10,18 +10,18 @@ export interface ButtonProps {
 
 const ResetButton: React.FunctionComponent<ButtonProps> = ({state, handleReset}) => {
   let winner = calculateWinner(state.squares);
-  // Hides the reset button, with css from styles.js, when the games over
+  // Hides reset button when the game's over
   if (winner || !state.squares.includes(null)) {
-    return <RButton gameover={false}>RESET</RButton>;
+    return <Button gameover={true}/>;
   } else {
     return (
-      <RButton 
-        gameover={true} 
+      <Button 
+        gameover={false} 
         onClick={() => handleReset()}
         onTouchMove={() => handleReset()} 
       >
         RESET
-      </RButton>
+      </Button>
     );
   }
 };

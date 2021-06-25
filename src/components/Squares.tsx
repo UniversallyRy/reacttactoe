@@ -14,7 +14,6 @@ export interface SquareCSSProps {
   onTouchEnd?: (() => void);
   disabled: boolean;
 }
-// square Component with event listeners
  const Square: React.FunctionComponent<SquaresProps> = ({ state, handleClick, i }) => {
   let winner = calculateWinner(state.squares);
   let squares = [...state.squares];
@@ -27,7 +26,7 @@ export interface SquareCSSProps {
   } else if (squares[i] === "X") {
     return <SquareStyle disabled={true} player={"AI"} value={state.squares[i]} />;
   } else {
-    // Default rendered squares when ...squares[i] is empty(nulled)
+    // Default rendered squares when squares[i] has a null value
     return (
       <SquareStyle
         player={""}

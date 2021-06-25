@@ -102,7 +102,7 @@ const Reset = styled.div`
   justify-content: center;
 `;
 
-const RButton = styled.button<{ gameover: boolean }>`
+const Button = styled.button<{ gameover: boolean }>`
   background: #cbb4d4;
   border: 0.5px solid #a044ff;
   box-shadow: 0 0 0 2px #cbb4d4, 2px 1px 2px 3px rgba(10, 10, 0, 0.5);
@@ -117,7 +117,7 @@ const RButton = styled.button<{ gameover: boolean }>`
   width: 8.5em;
   visibility: ${
     // prop to hide reset button when game is over
-    (props) => (props.gameover ? "visible" : "hidden")
+    (props) => (!props.gameover ? "visible" : "hidden")
   };
   &:hover {
     background: #a044ff;
@@ -237,7 +237,7 @@ const OverlayCSS = styled.div<{ gameover: boolean, player: string }>`
   position: absolute;
   visibility: ${
     // Prop to show overlay only when a game is over
-    (props) => (props.gameover ? "visible" : "hidden")
+    (props) => (!props.gameover ? "hidden": "visible")
   };
   &:hover {
     opacity: 0.5;
@@ -267,7 +267,7 @@ export {
   GameTitle,
   Status,
   Reset,
-  RButton,
+  Button,
   BoardRow,
   SquareCSS,
   OverlayCSS,

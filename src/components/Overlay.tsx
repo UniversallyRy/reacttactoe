@@ -10,10 +10,7 @@ export interface OverlayProps {
 
 const Overlay: React.FunctionComponent<OverlayProps>= ({ state, handleReset }) => {
     let winner = calculateWinner(state.squares);
-    // Future score counter
-    // let theWinner = (winner === 'X') ? setstate(currentScore => {
-    //   return {aiScore: currentScore.aiScore++}
-    // }) : 'You';
+
     if (winner) {
       let gameWinner = winner === "X" ? "CPU" : "You";
   
@@ -36,7 +33,7 @@ const Overlay: React.FunctionComponent<OverlayProps>= ({ state, handleReset }) =
             </OverlayText>
         </OverlayCSS>
       );
-      //checks squares states to see if all the default null state values are gone
+      //catch for when squares array has 0 null indexes and no more moves to be made
     } else if (!state.squares.includes(null)) {
       return (
         <OverlayCSS 
