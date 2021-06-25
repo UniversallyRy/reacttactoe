@@ -33,8 +33,7 @@ const BoardWrap = styled.div`
   user-select: none; /* Standard syntax */
 
   @media (min-width: 768px) {
-  margin-top: 3em;
-    
+  margin-top: 3em; 
   }
 
   @media (min-width: 1024px) {
@@ -102,7 +101,7 @@ const Reset = styled.div`
   justify-content: center;
 `;
 
-const Button = styled.button<{ gameover?: boolean }>`
+const Button = styled.button<{ gameover?                                          : boolean }>`
   background: #cbb4d4;
   border: 0.5px solid #a044ff;
   box-shadow: 0 0 0 2px #cbb4d4, 2px 1px 2px 3px rgba(10, 10, 0, 0.5);
