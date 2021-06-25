@@ -3,9 +3,9 @@ import { OverlayCSS, OverlayText } from "../view/styles";
 
 export interface OverlayProps {
     state: {
-        squares: any[]
+      squares: any[]
     };
-    handleReset: any;
+    handleReset: (()=>void);
 }  
 
 const Overlay: React.FunctionComponent<OverlayProps>= ({ state, handleReset }) => {
@@ -21,16 +21,16 @@ const Overlay: React.FunctionComponent<OverlayProps>= ({ state, handleReset }) =
         onTouchMove={handleReset} 
         onClick={handleReset}
         >
-            <OverlayText>
-                <span 
-                style={{fontSize: 50, color:'#a044ff'}}
-                >
-                    {`${gameWinner}`}
-                </span> won!
-            </OverlayText>
-            <OverlayText>
-                Click To Replay
-            </OverlayText>
+          <OverlayText>
+              <span 
+              style={{fontSize: 50, color:'#a044ff'}}
+              >
+                  {`${gameWinner}`}
+              </span> won!
+          </OverlayText>
+          <OverlayText>
+              Click To Replay
+          </OverlayText>
         </OverlayCSS>
       );
       //catch for when squares array has 0 null indexes and no more moves to be made
@@ -41,12 +41,12 @@ const Overlay: React.FunctionComponent<OverlayProps>= ({ state, handleReset }) =
         gameover={true} 
         onClick={handleReset}
         >
-            <OverlayText>
-                <span style={{fontSize: 50}}>Draw!</span>
-            </OverlayText>
-            <OverlayText>
-                Click To Replay
-            </OverlayText>
+          <OverlayText>
+            <span style={{fontSize: 50}}>Draw!</span>
+          </OverlayText>
+          <OverlayText>
+              Click To Replay
+          </OverlayText>
         </OverlayCSS>
       );
     }
