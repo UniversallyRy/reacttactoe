@@ -7,7 +7,7 @@ const Github: React.FunctionComponent<GithubProps> = ():JSX.Element => {
   return (
     <div className="githubLogo" style={{  margin: 5 }}>
       <a href="https://github.com/UniversallyRy/reacttactoe">
-        <img src={githubLogo} style={{ color: "purple" }} alt="GitHub" />
+        <img src={githubLogo} style={{ color: "purple" }} alt="github" />
       </a>
     </div>
   );

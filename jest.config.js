@@ -3,7 +3,7 @@ module.exports = {
   transform: {
     "^.+\\.tsx?$": "ts-jest",
   },
-  setupFilesAfterEnv: [["<rootDir>/globals.d.js"]],
+  setupFilesAfterEnv: ["<rootDir>/src/setupTests.ts"],
   testRegex: "(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$",
-  moduleFileExtensions: ["js", "jsx", "ts", "tsx", "json", "node"],
+  moduleFileExtensions: ["js", "jsx", "ts", "tsx", "json", "node", "png"],
 };
