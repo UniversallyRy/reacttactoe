@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`check styled-component styling 1`] = `
+.c0 {
+  background: #cbb4d4;
+  border: 0.5px solid #a044ff;
+  box-shadow: 0 0 0 2px #cbb4d4,2px 1px 2px 3px rgba(10,10,0,0.5);
+  color: #a044ff;
+  font-family: Fascinate,sans-serif;
+  font-weight: bold;
+  font-size: 2em;
+  height: 2.5em;
+  line-height: 2em;
+  padding: 1px;
+  text-align: center;
+  width: 8.5em;
+  visibility: hidden;
+}
+
+.c0:hover {
+  background: #a044ff;
+  border: 1px dashed #a044ff;
+  box-shadow: 0 0 0 2px #a044ff,2px 1px 2px 3px rgba(10,10,0,0.5);
+  text-shadow: -1px #cbb4d4;
+  color: #cbb4d4;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+@media (min-width:1024px) {
+  .c0 {
+    font-size: 1.2em;
+    height: 1.5em;
+    line-height: 1em;
+  }
+}
+
+<button
+  class="c0"
+/>
+`;

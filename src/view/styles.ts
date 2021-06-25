@@ -102,7 +102,7 @@ const Reset = styled.div`
   justify-content: center;
 `;
 
-const Button = styled.button<{ gameover: boolean }>`
+const Button = styled.button<{ gameover?: boolean }>`
   background: #cbb4d4;
   border: 0.5px solid #a044ff;
   box-shadow: 0 0 0 2px #cbb4d4, 2px 1px 2px 3px rgba(10, 10, 0, 0.5);

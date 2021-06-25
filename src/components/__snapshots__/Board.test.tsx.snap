@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`check default square color 1`] = `
+.c0 {
+  background: #cbb4d4;
+  color: #F00000;
+  border: 1px dashed #cbb4d4;
+  border-radius: 2px;
+  box-shadow: 0 0 0 4px #cbb4d4,2px 1px 6px 4px rgba(10,10,0,0.5);
+  font-family: Fascinate,sans-serif;
+  width: 20.833333333333336vw;
+  min-height: 20.833333333333336vw;
+  margin: .6em;
+  text-align: center;
+  text-shadow: 1px 0.6px #grey;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:hover {
+  background: #5F9EA0;
+  border: 1px dashed #5F9EA0;
+  border-radius: 1px;
+  box-shadow: 0 0 0 4px #5F9EA0,2px 1px 6px 4px rgba(10,10,0,0.5);
+  opacity: 1;
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:1024px) {
+
+}
+
+@media (min-width:1024px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:1024px) {
+
+}
+
+@media (min-width:1024px) {
+
+}
+
+@media (min-width:768px) {
+  .c0 {
+    width: 17.36111111111111vw;
+    min-height: 17.36111111111111vw;
+    margin: .6em;
+  }
+}
+
+@media (min-width:1024px) {
+  .c0 {
+    width: 8.333333333333332vw;
+    min-height: 8.333333333333332vw;
+  }
+}
+
+<button
+  class="c0"
+  style="pointer-events: auto;"
+/>
+`;
