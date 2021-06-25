@@ -18,7 +18,7 @@ const ResetButton: React.FunctionComponent<ButtonProps> = ({state, handleReset})
       <Button 
         gameover={false} 
         onClick={() => handleReset()}
-        onTouchMove={() => handleReset()} 
+        onTouchEnd={() => handleReset()} 
       >
         RESET
       </Button>
