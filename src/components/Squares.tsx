@@ -30,7 +30,7 @@ export interface SquareCSSProps {
     // Default rendered squares when ...squares[i] is empty(nulled)
     return (
       <SquareStyle
-        player={''}
+        player={""}
         disabled={winner ? true : !state.myTurn}
         value={state.squares[i]}
         onTouchEnd={() => handleClick(i)}
@@ -48,7 +48,7 @@ const SquareStyle: React.FunctionComponent<SquareCSSProps> = ({ player, onTouchE
       style={{
         pointerEvents: disabled ? "none" : "auto",
       }}
-      onTouchMove={onTouchEnd}
+      onTouchEnd={onTouchEnd}
       onClick={onClick}
     />
   );
