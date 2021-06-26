@@ -17,7 +17,8 @@ export interface SquareCSSProps {
   onTouchEnd?: (() => void);
   disabled: boolean;
 }
- const Square: React.FunctionComponent<SquaresProps> = ({ state, handleClick, i }) => {
+
+ const Square = ({ state, handleClick, i }:SquaresProps):JSX.Element => {
   let winner = calculateWinner(state.squares);
   let squares = [...state.squares];
   
@@ -42,7 +43,7 @@ export interface SquareCSSProps {
   }
 };
 
-const SquareStyle: React.FunctionComponent<SquareCSSProps> = ({ player, onTouchEnd, onClick, disabled }) => {
+const SquareStyle = ({ player, onTouchEnd, onClick, disabled }:SquareCSSProps) => {
   return (
     <SquareCSS
       player={player}

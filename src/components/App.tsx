@@ -6,7 +6,7 @@ export interface AppProps {
 }
 
 //todos: multiple boards/games, scorekeeper counter
-const App: React.FunctionComponent<AppProps> = ():JSX.Element => {
+const App = ():JSX.Element => {
   return (
     <>
       <Github />

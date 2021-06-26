@@ -8,7 +8,7 @@ export interface OverlayProps {
     handleReset: (()=>void);
 }  
 
-const Overlay: React.FunctionComponent<OverlayProps>= ({ state, handleReset }) => {
+const Overlay = ({ state, handleReset }:OverlayProps):JSX.Element => {
     let winner = calculateWinner(state.squares);
 
     if (winner) {
@@ -50,7 +50,7 @@ const Overlay: React.FunctionComponent<OverlayProps>= ({ state, handleReset }) =
         </OverlayCSS>
       );
     }
-    return null;
+    return null as any;
   };
 
 export default Overlay;

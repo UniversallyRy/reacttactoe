@@ -8,7 +8,7 @@ export interface ButtonProps {
   handleReset: (() => void);
 }
 
-const ResetButton: React.FunctionComponent<ButtonProps> = ({state, handleReset}) => {
+const ResetButton = ({ state, handleReset }:ButtonProps):JSX.Element => {
   let winner = calculateWinner(state.squares);
   // Hides reset button when the game's over
   if (winner || !state.squares.includes(null)) {

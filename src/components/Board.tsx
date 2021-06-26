@@ -15,7 +15,7 @@ import { maximize } from "../util/gameAI";
 export interface BoardProps {
 }  
 
-const Board: React.FunctionComponent<BoardProps> = ():JSX.Element => {
+const Board = ():JSX.Element => {
 
   const [state, setState] = useState({
     squares: new Array(9).fill(null),
