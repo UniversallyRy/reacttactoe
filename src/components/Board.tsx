@@ -15,9 +15,14 @@ import { maximize } from "../util/gameAI";
 export interface BoardProps {
 }  
 
+export interface stateProps{
+  squares: null[],
+  myTurn: boolean
+}
+
 const Board = ():JSX.Element => {
 
-  const [state, setState] = useState({
+  const [state, setState] = useState<stateProps>({
     squares: new Array(9).fill(null),
     myTurn: true,
   });
