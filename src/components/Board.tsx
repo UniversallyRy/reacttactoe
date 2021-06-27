@@ -27,10 +27,7 @@ const Board = ():JSX.Element => {
     myTurn: true,
   });
 
-  const handleClick:React.MouseEventHandler<
-    HTMLButtonElement | HTMLAnchorElement
-  > = (i:any) => {
-
+  const handleClick = (i:number) => {
     let squares:(string | null)[]  = [...state.squares];
     squares[i] = "O";
     // Sets current state of myTurn to false not disabling square clicks until AI chooses;
@@ -47,7 +44,9 @@ const Board = ():JSX.Element => {
     }, 500);
   };
 
-  const handleReset = () => {
+  const handleReset:React.MouseEventHandler<
+    HTMLButtonElement | HTMLAnchorElement
+  > = () => {
     // Delay on reset to let above setTimout finish first
     setTimeout(() => {
       setState({ squares: Array(9).fill(null), myTurn: true });
@@ -64,19 +63,19 @@ const Board = ():JSX.Element => {
           <ResetButton state={state} handleReset={handleReset}/>
         </Reset>
         <BoardRow>
-          <Square i={0} state={state} handleClick={handleClick}/>
-          <Square i={1} state={state} handleClick={handleClick}/>
-          <Square i={2} state={state} handleClick={handleClick}/>
+          <Square id={0} state={state} handleClick={handleClick}/>
+          <Square id={1} state={state} handleClick={handleClick}/>
+          <Square id={2} state={state} handleClick={handleClick}/>
         </BoardRow>
         <BoardRow>
-          <Square i={3} state={state} handleClick={handleClick}/>
-          <Square i={4} state={state} handleClick={handleClick}/>
-          <Square i={5} state={state} handleClick={handleClick}/>
+          <Square id={3} state={state} handleClick={handleClick}/>
+          <Square id={4} state={state} handleClick={handleClick}/>
+          <Square id={5} state={state} handleClick={handleClick}/>
         </BoardRow>
         <BoardRow>
-          <Square i={6} state={state} handleClick={handleClick}/>
-          <Square i={7} state={state} handleClick={handleClick}/>
-          <Square i={8} state={state} handleClick={handleClick}/>
+          <Square id={6} state={state} handleClick={handleClick}/>
+          <Square id={7} state={state} handleClick={handleClick}/>
+          <Square id={8} state={state} handleClick={handleClick}/>
         </BoardRow>
       </BoardBackground>
     </BoardWrap>

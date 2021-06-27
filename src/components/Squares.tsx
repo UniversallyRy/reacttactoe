@@ -6,48 +6,45 @@ export interface SquaresProps {
     squares: (string | null)[];
     myTurn: boolean;
   };
-  handleClick: any;
-  i: number; 
+  handleClick: ((id:number) => void);
+  id: number
 }
 
 export interface SquareCSSProps {
   player: string;
-  value: string | null ;
-  onClick?: (() => Event);
+  onClick?: any;
   onTouchEnd?: (() => void);
   disabled: boolean;
 }
 
- const Square = ({ state, handleClick, i }:SquaresProps):JSX.Element => {
+ const Square = ({ id, state, handleClick }:SquaresProps):JSX.Element => {
   let winner = calculateWinner(state.squares);
   let squares = [...state.squares];
   
-  if (squares[i] === "O") {
+  if (squares[id] === "O") {
     return (
-      <SquareStyle disabled={true} player={"player"} value={state.squares[i]} />
+      <SquareStyle disabled={true} player={"player"} />
     );
     // Does the same for AI
-  } else if (squares[i] === "X") {
-    return <SquareStyle disabled={true} player={"AI"} value={state.squares[i]} />;
+  } else if (squares[id] === "X") {
+    return <SquareStyle disabled={true} player={"AI"} />;
   } else {
     // Default rendered squares when squares[i] has a null value
     return (
       <SquareStyle
         player={""}
         disabled={winner ? true : !state.myTurn}
-        value={state.squares[i]}
-        onTouchEnd={() => handleClick(i)}
-        onClick={() => handleClick(i)}
+        onTouchEnd={() => handleClick(id)}
+        onClick={() => handleClick(id)}
       />
     );
   }
 };
 
-const SquareStyle = ({ player, onTouchEnd, onClick, disabled }:SquareCSSProps) => {
+const SquareStyle = ({onClick, onTouchEnd, player, disabled }:SquareCSSProps) => {
   return (
     <SquareCSS
       player={player}
-      children
       style={{
         pointerEvents: disabled ? "none" : "auto",
       }}

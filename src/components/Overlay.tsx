@@ -5,7 +5,7 @@ export interface OverlayProps {
   state: {
     squares: (string | null)[];
   };
-  handleReset: (()=>void);
+  handleReset?: any
 }  
 
 const Overlay = ({ state, handleReset }:OverlayProps):JSX.Element => {
