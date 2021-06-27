@@ -16,8 +16,8 @@ export interface BoardProps {
 }  
 
 export interface stateProps{
-  squares: (string | null)[] ;
-  myTurn: boolean;
+  readonly squares: (string | null)[] ;
+  readonly myTurn: boolean;
 }
 
 const Board = ():JSX.Element => {

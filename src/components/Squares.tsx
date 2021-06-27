@@ -3,8 +3,8 @@ import { calculateWinner } from "../util/gameAI";
 
 export interface SquaresProps {
   state: {
-    squares: (string | null)[];
-    myTurn: boolean;
+    readonly squares: (string | null)[];
+    readonly myTurn: boolean;
   };
   handleClick: ((id:number) => void);
   id: number
@@ -12,7 +12,7 @@ export interface SquaresProps {
 
 export interface SquareCSSProps {
   player: string;
-  onClick?: any;
+  onClick?: () => void;
   onTouchEnd?: (() => void);
   disabled: boolean;
 }
