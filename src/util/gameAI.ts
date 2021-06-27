@@ -1,8 +1,8 @@
 // Calculate the AI's best potential move
-const getAvailableSpots = (board: (string | null)[]) => {
+const getAvailableSpots = (squares: (string | null)[]) => {
   let result: number[] = [];
-  for (let i = 0; i < board.length; i++) {
-    if (!board[i]) {
+  for (let i = 0; i < squares.length; i++) {
+    if (!squares[i]) {
       result.push(i);
     }
   }
@@ -10,7 +10,7 @@ const getAvailableSpots = (board: (string | null)[]) => {
 };
 
 // logic to find if any of these 8 combos contains either all "X" or "O",
-const calculateWinner = (board: (string | null)[] ) => {
+const calculateWinner = (squares: (string | null)[] ) => {
   let winningRows = [
     [0, 1, 2],
     [3, 4, 5],
@@ -25,21 +25,21 @@ const calculateWinner = (board: (string | null)[] ) => {
   // indexes all have the same value, either "X" or "O"
   for (let winningRow of winningRows) {
     let [a, b, c] = winningRow;
-    if (board[a] && board[a] === board[b] && board[a] === board[c]) {
+    if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
       // If they all have same value return true and that value
-      return true && board[a];
+      return true && squares[a];
     }
   }
   return false;
 };
 
 // Calculates AI best move
-const minimize = (board: (string | null)[] ) => {
-  const moves = getAvailableSpots(board);
+const minimize = (squares: (string | null)[] ) => {
+  const moves = getAvailableSpots(squares);
   let bestMove;
   let bestValue = 100000;
 
-  if (calculateWinner(board)) {
+  if (calculateWinner(squares)) {
     return 1;
   }
   if (!moves.length) {
@@ -47,8 +47,8 @@ const minimize = (board: (string | null)[] ) => {
   }
 
   for (let move of moves) {
-    board[move] = "O";
-    let hValue:any= maximize(board) || 0;
+    squares[move] = "O";
+    let hValue:any= maximize(squares) || 0;
     if (Array.isArray(hValue)) {
       hValue = hValue[0];
     }
@@ -56,18 +56,18 @@ const minimize = (board: (string | null)[] ) => {
       bestMove = move;
       bestValue = hValue;
     }
-    board[move] = null;
+    squares[move] = null;
   }
 
   return [bestValue, bestMove];
 };
 
-const maximize = (board: (string | null)[]) => {
-  const moves = getAvailableSpots(board);
+const maximize = (squares: (string | null)[]) => {
+  const moves = getAvailableSpots(squares);
   let bestMove;
   let bestValue = -100000;
 
-  if (calculateWinner(board)) {
+  if (calculateWinner(squares)) {
     return -1;
   }
   if (!moves.length) {
@@ -75,8 +75,8 @@ const maximize = (board: (string | null)[]) => {
   }
 
   for (let move of moves) {
-    board[move] = "X";
-    let hValue:any = minimize(board);
+    squares[move] = "X";
+    let hValue:any = minimize(squares);
     if (Array.isArray(hValue)) {
       hValue = hValue[0];
     }
@@ -84,7 +84,7 @@ const maximize = (board: (string | null)[]) => {
       bestMove = move;
       bestValue = hValue;
     }
-    board[move] = null;
+    squares[move] = null;
   }
   
   return [bestValue, bestMove];
