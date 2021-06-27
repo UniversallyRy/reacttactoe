@@ -2,6 +2,15 @@
 import styled, { keyframes } from "styled-components";
 import adaptive from '../util/adaptive';
 
+interface ButtonProps {
+  readonly gameover: boolean;
+};
+interface SquareProps {
+  readonly player: string;
+};
+interface OverlayProps extends ButtonProps, SquareProps{
+};
+
 const flickerAnimation = keyframes`
   0%   { opacity:1; }
   50%  { opacity:0; }
@@ -101,7 +110,7 @@ const Reset = styled.div`
   justify-content: center;
 `;
 
-const Button = styled.button<{ gameover?: boolean }>`
+const Button = styled.button<ButtonProps>`
   background: #cbb4d4;
   border: 0.5px solid #a044ff;
   box-shadow: 0 0 0 2px #cbb4d4, 2px 1px 2px 3px rgba(10, 10, 0, 0.5);
@@ -144,7 +153,7 @@ const BoardRow = styled.div`
   }
 `;
 
-const SquareCSS = styled.button<{ player:string }>`
+const SquareCSS = styled.button<SquareProps>`
   background: ${
     // Props used to input player square colors when given a value
     (props) =>
@@ -202,7 +211,7 @@ const SquareCSS = styled.button<{ player:string }>`
   }
 `;
 
-const OverlayCSS = styled.div<{ gameover: boolean, player: string }>`
+const OverlayCSS = styled.div<OverlayProps>`
   animation: ${flickerAnimation} 5s infinite;
   background: ${
     // Match overlay with whoever won
