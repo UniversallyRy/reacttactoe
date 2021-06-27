@@ -6,19 +6,19 @@ import { Button } from "../view/styles";
 const state = {squares: []}  
 const handleReset = (() => null);
 
-test("renders without crashing", () => {
+test("renders without crashing", async () => {
   const div = document.createElement("div");
   ReactDOM.render(<ResetButton state={state} handleReset={handleReset}/>, div);
 });
 
-test('check styled-component styling', () => {
+test('check styled-component styling', async () => {
   const { container } = render(<ResetButton state={state} handleReset={handleReset}/>);
   expect(container.firstChild).toHaveStyleRule('color', '#a044ff')
   expect(container.firstChild).toMatchSnapshot()
   expect(container).toBeInTheDocument();
 });
 
-test('button clicks', () => {
+test('button clicks', async () => {
   const onClick = jest.fn();
   const { container } = render(<Button gameover={false} onClick={onClick} />);
   const button:any = container.querySelector('.sc-jSFjdj')

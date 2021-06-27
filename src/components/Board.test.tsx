@@ -3,24 +3,24 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import Board from "./Board";
 import Square from "./Squares"
 
-test("renders without crashing", () => {
+test("renders without crashing", async () => {
   const div = document.createElement("div");
   ReactDOM.render(<Board />, div);
 });
 
-test('renders reset button text', () => {
+test('renders reset button text', async () => {
   render(<Board />);
   const buttonElement = screen.getByText(/reset/i);
   expect(buttonElement).toBeInTheDocument();
 });
 
-test('renders square', () => {
+test('renders square', async () => {
   const { container } = render(<Board />);
   const square = container.querySelector('.sc-iCoGMd.jYXntD')
   expect(square).toBeInTheDocument();
 })
 
-test('check default square color', () => {
+test('check default square color', async () => {
   const { container } = render(<Board />);
   const square = container.querySelector('.sc-iCoGMd.jYXntD')
   expect(square).toHaveStyleRule('background', '#cbb4d4')
@@ -28,10 +28,10 @@ test('check default square color', () => {
   expect(square).toBeInTheDocument();
 });
 
-test('check square presses', () => {
+test('check square presses', async () => {
   const state = {squares: [], myTurn:true}  
   const onClick = jest.fn();
-  const { container } = render(<Square i={0} state={state} handleClick={onClick}/>);
+  const { container } = render(<Square id={0} state={state} handleClick={onClick}/>);
   const square:any = container.querySelector('.sc-iCoGMd.jYXntD')
   expect(square).toBeInTheDocument();
   expect(onClick).toHaveBeenCalledTimes(0);
