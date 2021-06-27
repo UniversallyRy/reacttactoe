@@ -16,8 +16,8 @@ export interface BoardProps {
 }  
 
 export interface stateProps{
-  squares: null[],
-  myTurn: boolean
+  squares: null[];
+  myTurn: boolean;
 }
 
 const Board = ():JSX.Element => {
