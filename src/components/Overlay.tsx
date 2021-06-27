@@ -8,7 +8,7 @@ export interface OverlayProps {
   handleReset?: () => void;
 }  
 
-const Overlay = ({ state, handleReset }:OverlayProps):JSX.Element => {
+export const Overlay = ({ state, handleReset }:OverlayProps):JSX.Element => {
   let winner = calculateWinner(state.squares);
 
   if (winner) {
@@ -52,5 +52,3 @@ const Overlay = ({ state, handleReset }:OverlayProps):JSX.Element => {
     }
     return null as any;
   };
-
-export default Overlay;

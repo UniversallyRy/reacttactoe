@@ -10,7 +10,7 @@ const getAvailableSpots = (squares: (string | null)[]) => {
 };
 
 // logic to find if any of these 8 combos contains either all "X" or "O",
-const calculateWinner = (squares: (string | null)[] ) => {
+export const calculateWinner = (squares: (string | null)[] ) => {
   let winningRows = [
     [0, 1, 2],
     [3, 4, 5],
@@ -62,7 +62,7 @@ const minimize = (squares: (string | null)[] ) => {
   return [bestValue, bestMove];
 };
 
-const maximize = (squares: (string | null)[]) => {
+export const maximize = (squares: (string | null)[]) => {
   const moves = getAvailableSpots(squares);
   let bestMove;
   let bestValue = -100000;
@@ -89,5 +89,3 @@ const maximize = (squares: (string | null)[]) => {
   
   return [bestValue, bestMove];
 };
-
-export { maximize, calculateWinner };

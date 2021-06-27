@@ -1,12 +1,12 @@
-import Board from "./Board";
-import Global from "../view/global";
-import Github from "./Github";
+import { Board } from "./Board";
+import { Global } from "../view/global";
+import { Github } from "./Github";
 
 export interface AppProps {
 }
 
 //todos: multiple boards/games, scorekeeper counter
-const App = ():JSX.Element => {
+export const App = ():JSX.Element => {
   return (
     <>
       <Github />
@@ -15,5 +15,3 @@ const App = ():JSX.Element => {
     </>
   );
 };
-
-export default App;

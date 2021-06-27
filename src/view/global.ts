@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-import adaptive from "../util/adaptive";
+import { adaptive } from "../util/adaptive";
 //HTML's stylings 
 export const Global = createGlobalStyle`
   * {
@@ -19,5 +19,3 @@ export const Global = createGlobalStyle`
       }
   }
 `;
-
-export default Global;

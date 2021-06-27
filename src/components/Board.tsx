@@ -1,7 +1,7 @@
 import { useState } from "react";
-import Square from "./Squares";
-import Overlay from "./Overlay";
-import ResetButton from "./ResetButton";
+import { Square } from "./Squares";
+import { Overlay } from "./Overlay";
+import { ResetButton } from "./ResetButton";
 import {
   BoardWrap,
   GameTitle,
@@ -20,7 +20,7 @@ export interface stateProps{
   readonly myTurn: boolean;
 }
 
-const Board = ():JSX.Element => {
+export const Board = ():JSX.Element => {
 
   const [state, setState] = useState<stateProps>({
     squares: new Array(9).fill(null),
@@ -79,5 +79,3 @@ const Board = ():JSX.Element => {
     </BoardWrap>
   );
 };
-
-export default Board;

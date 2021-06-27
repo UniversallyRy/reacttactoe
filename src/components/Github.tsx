@@ -3,7 +3,7 @@ import githubLogo from "../view/github.png";
 export interface GithubProps {
 }  
 
-const Github = ():JSX.Element => {
+export const Github = ():JSX.Element => {
   return (
     <div className="githubLogo" style={{  margin: 5 }}>
       <a href="https://github.com/UniversallyRy/reacttactoe">
@@ -12,5 +12,3 @@ const Github = ():JSX.Element => {
     </div>
   );
 };
-
-export default Github;

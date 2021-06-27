@@ -17,7 +17,7 @@ export interface SquareCSSProps {
   disabled: boolean;
 }
 
- const Square = ({ id, state, handleClick }:SquaresProps):JSX.Element => {
+ export const Square = ({ id, state, handleClick }:SquaresProps):JSX.Element => {
   let winner = calculateWinner(state.squares);
   let squares = [...state.squares];
   
@@ -53,5 +53,3 @@ const SquareStyle = ({onClick, onTouchEnd, player, disabled }:SquareCSSProps) =>
     />
   );
 };
-
-export default Square;

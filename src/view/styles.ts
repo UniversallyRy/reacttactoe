@@ -1,6 +1,6 @@
 // Board Stylings
 import styled, { keyframes } from "styled-components";
-import adaptive from '../util/adaptive';
+import { adaptive } from '../util/adaptive';
 
 interface ButtonProps {
   readonly gameover: boolean;
