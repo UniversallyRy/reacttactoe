@@ -1,7 +1,7 @@
 import ReactDOM from "react-dom";
 import { render, screen, fireEvent } from '@testing-library/react';
-import Board from "./Board";
-import Square from "./Squares"
+import { Board } from "./Board";
+import { Square } from "./Squares"
 
 test("renders without crashing", async () => {
   const div = document.createElement("div");

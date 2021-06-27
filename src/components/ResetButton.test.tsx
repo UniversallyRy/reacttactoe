@@ -1,6 +1,6 @@
 import ReactDOM from "react-dom";
 import { render, fireEvent } from '@testing-library/react'
-import ResetButton from "./ResetButton";
+import { ResetButton } from "./ResetButton";
 import { Button } from "../view/styles";
 
 const state = {squares: []}  

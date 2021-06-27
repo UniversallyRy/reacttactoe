@@ -1,6 +1,6 @@
 import ReactDOM from "react-dom";
 // import { render, screen } from '@testing-library/react';
-import Overlay from "./Overlay";
+import { Overlay } from "./Overlay";
 
 test("renders without crashing", async () => {
   const state = {squares: []}  
