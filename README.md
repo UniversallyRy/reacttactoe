@@ -31,8 +31,7 @@ yarn start
 - [create-react-app](https://create-react-app.dev/docs/getting-started/)
 - [styled-components](https://styled-components.com/)
 - [TypeScript](https://www.typescriptlang.org/)
-
-##### [Minimax Algorithm](https://en.wikipedia.org/wiki/Minimax) implemented to create an unbeatable A.I.
+- ##### [Minimax Algorithm](https://en.wikipedia.org/wiki/Minimax) implemented to create an unbeatable A.I.
 
 ##### Screenshot
 
