@@ -2,9 +2,35 @@
 
 ##### Simple Tic Tac Toe app created with create-react-app.
 
-##### Made With
+## Usage
 
--[create-react-app](https://create-react-app.dev/docs/getting-started/) -[styled-components](https://styled-components.com/) -[TypeScript](https://www.typescriptlang.org/)
+```bash
+npm install
+```
+
+or
+
+```bash
+yarn
+```
+
+And then to run the project:
+
+```bash
+npm start
+```
+
+or
+
+```bash
+yarn start
+```
+
+## Made With
+
+- [create-react-app](https://create-react-app.dev/docs/getting-started/)
+- [styled-components](https://styled-components.com/)
+- [TypeScript](https://www.typescriptlang.org/)
 
 ##### [Minimax Algorithm](https://en.wikipedia.org/wiki/Minimax) implemented to create an unbeatable A.I.
 
