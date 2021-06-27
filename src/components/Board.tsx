@@ -16,7 +16,7 @@ export interface BoardProps {
 }  
 
 export interface stateProps{
-  squares: null[];
+  squares: (string | null)[] ;
   myTurn: boolean;
 }
 
@@ -31,7 +31,7 @@ const Board = ():JSX.Element => {
     HTMLButtonElement | HTMLAnchorElement
   > = (i:any) => {
 
-    let squares:any[] = [...state.squares];
+    let squares:(string | null)[]  = [...state.squares];
     squares[i] = "O";
     // Sets current state of myTurn to false not disabling square clicks until AI chooses;
     setState((currentState) => {

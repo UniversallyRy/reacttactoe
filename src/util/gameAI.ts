@@ -1,5 +1,5 @@
 // Calculate the AI's best potential move
-const getAvailableSpots = (board: string[] | null[]) => {
+const getAvailableSpots = (board: (string | null)[]) => {
   let result: number[] = [];
   for (let i = 0; i < board.length; i++) {
     if (!board[i]) {
@@ -10,8 +10,8 @@ const getAvailableSpots = (board: string[] | null[]) => {
 };
 
 // logic to find if any of these 8 combos contains either all "X" or "O",
-const calculateWinner = (board: string[] | null[]) => {
-  const winningRows = [
+const calculateWinner = (board: (string | null)[] ) => {
+  let winningRows = [
     [0, 1, 2],
     [3, 4, 5],
     [6, 7, 8],
@@ -24,7 +24,7 @@ const calculateWinner = (board: string[] | null[]) => {
   // Loops through winningRows array, and checks if squares at those
   // indexes all have the same value, either "X" or "O"
   for (let winningRow of winningRows) {
-    const [a, b, c] = winningRow;
+    let [a, b, c] = winningRow;
     if (board[a] && board[a] === board[b] && board[a] === board[c]) {
       // If they all have same value return true and that value
       return true && board[a];
@@ -34,7 +34,7 @@ const calculateWinner = (board: string[] | null[]) => {
 };
 
 // Calculates AI best move
-const minimize = (board: string[] | null[]) => {
+const minimize = (board: (string | null)[] ) => {
   const moves = getAvailableSpots(board);
   let bestMove;
   let bestValue = 100000;
@@ -58,10 +58,11 @@ const minimize = (board: string[] | null[]) => {
     }
     board[move] = null;
   }
+
   return [bestValue, bestMove];
 };
 
-const maximize = (board: string[] | null[]) => {
+const maximize = (board: (string | null)[]) => {
   const moves = getAvailableSpots(board);
   let bestMove;
   let bestValue = -100000;
@@ -69,7 +70,6 @@ const maximize = (board: string[] | null[]) => {
   if (calculateWinner(board)) {
     return -1;
   }
-
   if (!moves.length) {
     return 0;
   }
@@ -86,6 +86,7 @@ const maximize = (board: string[] | null[]) => {
     }
     board[move] = null;
   }
+  
   return [bestValue, bestMove];
 };
 

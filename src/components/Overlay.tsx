@@ -3,7 +3,7 @@ import { OverlayCSS, OverlayText } from "../view/styles";
 
 export interface OverlayProps {
   state: {
-    squares: any[]
+    squares: (string | null)[];
   };
   handleReset: (()=>void);
 }  

@@ -3,7 +3,7 @@ import { calculateWinner } from "../util/gameAI";
 
 export interface ButtonProps {
   state: {
-    squares:any[]
+    squares: (string | null)[];
   };
   handleReset: (() => void);
 }
