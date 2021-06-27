@@ -5,7 +5,7 @@ export interface ButtonProps {
   state: {
     squares: (string | null)[];
   };
-  handleReset: any
+  handleReset: () => void;
 }
 
 const ResetButton = ({ state, handleReset }:ButtonProps):JSX.Element => {

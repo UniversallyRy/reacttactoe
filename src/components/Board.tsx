@@ -28,7 +28,7 @@ const Board = ():JSX.Element => {
   });
 
   const handleClick = (i:number) => {
-    let squares:(string | null)[]  = [...state.squares];
+    const squares:(string | null)[]  = [...state.squares];
     squares[i] = "O";
     // Sets current state of myTurn to false not disabling square clicks until AI chooses;
     setState((currentState) => {
@@ -36,7 +36,7 @@ const Board = ():JSX.Element => {
     });
     // setTimeout for AI's choice delay
     setTimeout(() => {
-      let best: any = maximize(squares);
+      const best:any = maximize(squares);
       squares[best[1]] = "X";
       setState((currentState) => {
         return { squares, myTurn: !currentState.myTurn };
@@ -44,9 +44,7 @@ const Board = ():JSX.Element => {
     }, 500);
   };
 
-  const handleReset:React.MouseEventHandler<
-    HTMLButtonElement | HTMLAnchorElement
-  > = () => {
+  const handleReset = () => {
     // Delay on reset to let above setTimout finish first
     setTimeout(() => {
       setState({ squares: Array(9).fill(null), myTurn: true });
