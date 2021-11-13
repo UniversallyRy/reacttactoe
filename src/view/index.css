@@ -1,5 +1,5 @@
 html {
-  height: 100;
+  height: 100vh;
   background: #673ab7; /* fallback for old browsers */
   background: -webkit-linear-gradient(
     to top,

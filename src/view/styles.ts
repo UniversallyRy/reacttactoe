@@ -32,7 +32,7 @@ const BoardWrap = styled.div`
   max-width: 100%;
   align-items: center;
   display: flex;
-  margin: 3em;
+  margin-top: 3em;
   flex-wrap: wrap;
   flex-direction: column;
   font-family: Fascinate, sans-serif;
@@ -42,11 +42,11 @@ const BoardWrap = styled.div`
   user-select: none; /* Standard syntax */
 
   @media (min-width: 768px) {
-  margin: 3em; 
+  margin-top: 3em; 
   }
 
   @media (min-width: 1024px) {
-  margin: 1em;
+  margin-top: 1em;
   }
   
 `;
