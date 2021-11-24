@@ -1,5 +1,5 @@
 {
-  "name": "tictactoe",
+  "name": "tic-tac-toe",
   "version": "0.1.5",
   "private": true,
   "homepage": "https://universallyry.github.io/reacttactoe/",
@@ -51,5 +51,7 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "keywords": [],
+  "description": "Tic Tac Toe app made with react."
 }
