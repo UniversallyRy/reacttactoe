@@ -30,6 +30,7 @@ const hideStatus = keyframes`
 const BoardWrap = styled.div`
   max-width: 100%;
   margin-top: 3em;
+  margin-bottom: 2em;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -52,7 +53,7 @@ const BoardWrap = styled.div`
 const BoardBackground = styled.div`
   background-color: #cbb4d4;
   border-radius: 1.2em;
-  padding: 2em;
+  padding: 2.5em;
 `;
 
 const GameTitle = styled.h1`
@@ -209,10 +210,10 @@ const OverlayCSS = styled.div<OverlayProps>`
   position: absolute;
   width: ${adaptive(1040)};
   min-height: ${adaptive(1250)};
-  height: 3.5em;
   padding: 1px;
+  margin-bottom: 4em;
   font-size: 3em;
-  line-height: 3em;
+  line-height: 3em; 
   background: ${// Match overlay with whoever won
   (props) =>
     props.player === "O"
@@ -232,7 +233,7 @@ const OverlayCSS = styled.div<OverlayProps>`
       : props.player === "X"
       ? "1px dashed #000046"
       : "1px dashed #a044ff"};
-  border-radius: 10px;
+  border-radius: 7px;
   box-shadow: 0 0 0 2px #cbb4d4, 2px 1px 2px 3px rgba(10, 10, 0, 0.5);
   visibility: ${// Prop to show overlay only when a game is over
   (props) => (!props.gameover ? "hidden" : "visible")};
