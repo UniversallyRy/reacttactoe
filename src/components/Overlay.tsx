@@ -16,10 +16,10 @@ export const Overlay = ({ state, handleReset }:OverlayProps):JSX.Element => {
   
     return (
       <OverlayCSS 
-      player={winner} 
-      gameover={true} 
-      onTouchMove={handleReset} 
-      onClick={handleReset}
+        player={winner} 
+        gameover={true} 
+        onTouchMove={handleReset} 
+        onClick={handleReset}
       >
         <OverlayText>
           <span 
