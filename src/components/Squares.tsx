@@ -6,8 +6,8 @@ export interface SquaresProps {
     readonly squares: (string | null)[];
     readonly myTurn: boolean;
   };
+  id: number;
   handleClick: ((id:number) => void);
-  id: number
 }
 
 export interface SquareCSSProps {
@@ -17,7 +17,7 @@ export interface SquareCSSProps {
   disabled: boolean;
 }
 
- export const Square = ({ id, state, handleClick }:SquaresProps):JSX.Element => {
+ export const Square = ({ state, id, handleClick }:SquaresProps):JSX.Element => {
   let winner = calculateWinner(state.squares);
   let squares = [...state.squares];
   
