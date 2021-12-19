@@ -58,12 +58,11 @@ const BoardBackground = styled.div`
 
 const GameTitle = styled.h1`
   font-size: 4em;
-  border-radius: 5px;
-  margin-bottom: 10px;
+  border-radius: 3px;
   padding: 0.2em;
-  border: 0.5px solid #cbb4d4;
   background: #a044ff;
   color: #cbb4d4;
+  box-shadow: 0 0 0 2px #a044ff, 2px 1px 1px 2px rgba(10, 10, 0, 0.5);
   font-weight: bold;
   text-align: center;
 
@@ -111,10 +110,9 @@ const Reset = styled.div`
 const Button = styled.button<ButtonProps>`
   height: 2.5em;
   width: 8.5em;
-  padding: 1px;
   background: #cbb4d4;
   color: #a044ff;
-  border: 0.5px solid #a044ff;
+  border: 1px dashed #a044ff;
   box-shadow: 0 0 0 2px #cbb4d4, 2px 1px 2px 3px rgba(10, 10, 0, 0.5);
   font-size: 2em;
   font-family: Fascinate, sans-serif;
