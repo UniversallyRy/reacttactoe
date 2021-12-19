@@ -174,10 +174,10 @@ const SquareCSS = styled.button<SquareProps>`
   text-shadow: 1px 0.6px gray;
   box-shadow: ${(props) =>
     props.player === "player"
-      ? "0 0 0 4px #5F9EA0, 0.5px 1.5px 3px 3px rgba(60, 52, 102, 0.9)"
+      ? "0 0 0 2px #5F9EA0, 2px 1px 6px 4px rgba(60, 52, 102, 0.3)"
       : props.player === "AI"
-      ? "0 0 0 4px #000046, 4px 2px 12px 8px rgba(10, 10, 0, 0.3)"
-      : "0 0 0 4px #cbb4d4, 2px 1px 6px 4px rgba(10, 10, 0, 0.5)"};
+      ? "0 0 0 2px #000046, 2px 1px 6px 4px rgba(60, 52, 102, 0.3)"
+      : "0 0 0 3px #cbb4d4, 1px 1px 6px 2px rgba(10, 10, 0, 0.3)"};
   font-family: Fascinate, sans-serif;
   text-align: center;
   &:focus {
