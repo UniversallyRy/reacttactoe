@@ -171,7 +171,7 @@ const SquareCSS = styled.button<SquareProps>`
       ? "1px dashed #000046"
       : "1px dashed #cbb4d4"};
   border-radius: 2px;
-  text-shadow: 1px 0.6px gray;
+  text-shadow: 1px 0.6px #999;
   box-shadow: ${(props) =>
     props.player === "player"
       ? "0 0 0 2px #5F9EA0, 2px 1px 6px 4px rgba(60, 52, 102, 0.3)"
@@ -224,7 +224,7 @@ const OverlayCSS = styled.div<OverlayProps>`
       ? "#a044ff"
       : props.player === "X"
       ? "#cbb4d4"
-      : "black"};
+      : "#000"};
   border: ${(props) =>
     props.player === "O"
       ? "1px dashed #cbb4d4"
