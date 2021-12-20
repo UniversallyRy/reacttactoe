@@ -1,5 +1,5 @@
-import { Button } from "../view/styles";
 import { calculateWinner } from "../util/gameAI";
+import { Button } from "../view/styles";
 
 export interface ButtonProps {
   state: {

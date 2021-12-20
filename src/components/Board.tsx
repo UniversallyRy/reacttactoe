@@ -1,9 +1,9 @@
 import { useState } from "react";
+import { ResetButton } from "./ResetButton";
 import { Square } from "./Squares";
 import { Overlay } from "./Overlay";
-import { ResetButton } from "./ResetButton";
-import { BoardWrap, GameTitle, Status, Reset, BoardRow, BoardBackground } from "../view/styles";
 import { maximize } from "../util/gameAI";
+import { BoardWrap, GameTitle, Status, Reset, BoardRow, BoardBackground } from "../view/styles";
 
 export interface stateProps{
   readonly squares: (string | null)[] ;

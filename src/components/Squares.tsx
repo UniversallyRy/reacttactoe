@@ -1,5 +1,5 @@
-import { SquareCSS } from "../view/styles";
 import { calculateWinner } from "../util/gameAI";
+import { SquareCSS } from "../view/styles";
 
 export interface SquaresProps {
   state: {

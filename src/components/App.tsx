@@ -1,6 +1,6 @@
-import { Board } from "./Board";
-import { Global } from "../view/global";
 import { Github } from "./Github";
+import { Global } from "../view/global";
+import { Board } from "./Board";
 
 export interface AppProps {
 }
