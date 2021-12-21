@@ -32,9 +32,9 @@ test('check square presses', async () => {
   const state = {squares: [], myTurn:true}  
   const onClick = jest.fn();
   const { container } = render(<Square id={0} state={state} handleClick={onClick}/>);
-  const square:any = container.querySelector('.sc-iCoGMd.fXqpin')
+  const square = container.querySelector('.sc-iCoGMd.fXqpin')
   expect(square).toBeInTheDocument();
   expect(onClick).toHaveBeenCalledTimes(0);
-  fireEvent.click(square);
+  fireEvent.click(square!);
   expect(onClick).toHaveBeenCalledTimes(1);
 });

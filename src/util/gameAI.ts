@@ -9,7 +9,7 @@ const getAvailableSpots = (squares: (string | null)[]) => {
   return result;
 };
 
-// logic to find if any of these 8 combos contains either all "X" or "O",
+// logic to find if arrays contains either all "X" or "O",
 export const calculateWinner = (squares: (string | null)[] ) => {
   const winningRows: [number, number, number][] = [
     [0, 1, 2],
@@ -40,17 +40,17 @@ const minimize = (squares: (string | null)[] ) => {
   let bestValue = 100000;
 
   if (calculateWinner(squares)) {
-    return 1;
+    return 1!;
   }
   if (!moves.length) {
-    return 0;
+    return 0!;
   }
 
   for (let move of moves) {
     squares[move] = "O";
-    let hValue:any= maximize(squares) || 0;
+    let hValue = maximize(squares) || 0;
     if (Array.isArray(hValue)) {
-      hValue = hValue[0];
+      hValue = hValue[0]!;
     }
     if (hValue < bestValue) {
       bestMove = move;
@@ -59,26 +59,26 @@ const minimize = (squares: (string | null)[] ) => {
     squares[move] = null;
   }
 
-  return [bestValue, bestMove];
+  return [bestValue, bestMove]!;
 };
 
 export const maximize = (squares: (string | null)[]) => {
   const moves = getAvailableSpots(squares);
-  let bestMove;
+  let bestMove:number;
   let bestValue = -100000;
 
   if (calculateWinner(squares)) {
-    return -1;
+    return -1!;
   }
   if (!moves.length) {
-    return 0;
+    return 0!;
   }
 
   for (let move of moves) {
     squares[move] = "X";
-    let hValue:any = minimize(squares);
+    let hValue = minimize(squares);
     if (Array.isArray(hValue)) {
-      hValue = hValue[0];
+      hValue = hValue[0]!;
     }
     if (hValue > bestValue) {
       bestMove = move;
@@ -87,5 +87,5 @@ export const maximize = (squares: (string | null)[]) => {
     squares[move] = null;
   }
   
-  return [bestValue, bestMove];
+  return [bestValue, bestMove!];
 };

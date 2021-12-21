@@ -21,8 +21,8 @@ test('check styled-component styling', async () => {
 test('button clicks', async () => {
   const onClick = jest.fn();
   const { container } = render(<Button gameover={false} onClick={onClick} />);
-  const button:any = container.querySelector('.sc-jSFjdj')
+  const button = container.querySelector('.sc-jSFjdj')
   expect(onClick).toHaveBeenCalledTimes(0);
-  fireEvent.click(button);
+  fireEvent.click(button!);
   expect(onClick).toHaveBeenCalledTimes(1);
 });
