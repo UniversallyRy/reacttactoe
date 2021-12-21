@@ -2,17 +2,17 @@
 
 exports[`check default square color 1`] = `
 .c0 {
+  width: 20.833333333333336vw;
+  min-height: 20.833333333333336vw;
+  margin: 0.6em;
   background: #cbb4d4;
   color: #F00000;
   border: 1px dashed #cbb4d4;
   border-radius: 2px;
-  box-shadow: 0 0 0 4px #cbb4d4,2px 1px 6px 4px rgba(10,10,0,0.5);
+  text-shadow: 1px 0.6px #999;
+  box-shadow: 0 0 0 3px #cbb4d4,1px 1px 6px 2px rgba(10,10,0,0.3);
   font-family: Fascinate,sans-serif;
-  width: 20.833333333333336vw;
-  min-height: 20.833333333333336vw;
-  margin: .6em;
   text-align: center;
-  text-shadow: 1px 0.6px #grey;
 }
 
 .c0:focus {
@@ -20,18 +20,18 @@ exports[`check default square color 1`] = `
 }
 
 .c0:hover {
-  background: #5F9EA0;
-  border: 1px dashed #5F9EA0;
-  border-radius: 1px;
-  box-shadow: 0 0 0 4px #5F9EA0,2px 1px 6px 4px rgba(10,10,0,0.5);
+  background: #5f9ea0;
   opacity: 1;
+  border: 1px dashed #5f9ea0;
+  border-radius: 1px;
+  box-shadow: 0 0 0 4px #5f9ea0,2px 1px 6px 4px rgba(10,10,0,0.5);
 }
 
 @media (min-width:768px) {
   .c0 {
     width: 17.36111111111111vw;
     min-height: 17.36111111111111vw;
-    margin: .6em;
+    margin: 0.6em;
   }
 }
 

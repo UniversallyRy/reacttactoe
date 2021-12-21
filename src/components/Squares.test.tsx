@@ -12,7 +12,7 @@ test("renders without crashing", async () => {
 
 test('check default square color', async () => {
   const { container } = render(<Square id={0} state={state} handleClick={handleClick}/>);
-  const square = container.querySelector('.sc-iCoGMd.jYXntD')
+  const square = container.querySelector('.sc-iCoGMd.fXqpin')
   expect(square).toHaveStyleRule('background', '#cbb4d4')
   expect(square).toMatchSnapshot()
   expect(square).toBeInTheDocument();
