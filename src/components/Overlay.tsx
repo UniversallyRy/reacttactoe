@@ -50,5 +50,5 @@ export const Overlay = ({ state, handleReset }:OverlayProps):JSX.Element => {
       </OverlayCSS>
       );
     }
-    return null as any;
+    return null!
   };
