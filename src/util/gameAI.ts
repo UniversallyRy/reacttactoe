@@ -11,7 +11,7 @@ const getAvailableSpots = (squares: (string | null)[]) => {
 
 // logic to find if any of these 8 combos contains either all "X" or "O",
 export const calculateWinner = (squares: (string | null)[] ) => {
-  let winningRows = [
+  const winningRows: [number, number, number][] = [
     [0, 1, 2],
     [3, 4, 5],
     [6, 7, 8],
